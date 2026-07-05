@@ -1,15 +1,5 @@
-import { Text, View } from 'react-native';
+import { SplashScreen } from '@/components/splash/SplashScreen';
 
 export default function Index() {
-  return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <Text className="text-2xl text-red-500">abcss </Text>
-    </View>
-  );
+  return <SplashScreen />;
 }
