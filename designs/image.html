@@ -1,0 +1,475 @@
+<!doctype html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>LUMINA AI - Image Generator</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Geist:wght@400;500;600;700&amp;family=Hanken+Grotesk:wght@700;800;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24;
+      }
+      .glass-panel {
+        background: rgba(20, 20, 20, 0.7);
+        backdrop-filter: blur(40px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .neon-glow-primary:hover {
+        box-shadow: 0 0 20px rgba(76, 215, 246, 0.2);
+      }
+      .neon-glow-purple {
+        box-shadow: 0 0 15px rgba(221, 183, 255, 0.2);
+      }
+      .active-chip {
+        background: rgba(76, 215, 246, 0.1);
+        border-color: #4cd7f6;
+        color: #4cd7f6;
+      }
+      @keyframes shimmer {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(100%);
+        }
+      }
+      .shimmer-effect {
+        position: relative;
+        overflow: hidden;
+      }
+      .shimmer-effect::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(221, 183, 255, 0.1),
+          transparent
+        );
+        animation: shimmer 2s infinite;
+      }
+      /* Custom Slider Thumb */
+      input[type='range']::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        background: #4cd7f6;
+        box-shadow: 0 0 10px rgba(76, 215, 246, 0.8);
+        cursor: pointer;
+      }
+    </style>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'on-tertiary-container': '#560038',
+              'on-secondary-container': '#00424e',
+              'surface-container-high': '#2a2a2a',
+              'surface-container': '#201f1f',
+              'on-surface': '#e5e2e1',
+              secondary: '#4cd7f6',
+              'on-error-container': '#ffdad6',
+              'surface-dim': '#131313',
+              'surface-container-highest': '#353534',
+              'on-tertiary-fixed-variant': '#85145a',
+              'on-primary-fixed': '#2c0051',
+              'secondary-fixed': '#acedff',
+              'surface-bright': '#3a3939',
+              'on-secondary': '#003640',
+              background: '#131313',
+              outline: '#988d9f',
+              'on-primary': '#490080',
+              'on-secondary-fixed-variant': '#004e5c',
+              'surface-container-low': '#1c1b1b',
+              'on-secondary-fixed': '#001f26',
+              error: '#ffb4ab',
+              'on-primary-fixed-variant': '#6900b3',
+              'surface-tint': '#ddb7ff',
+              'primary-container': '#b76dff',
+              'on-primary-container': '#400071',
+              'tertiary-container': '#e364a7',
+              'tertiary-fixed-dim': '#ffafd3',
+              'inverse-primary': '#842bd2',
+              'inverse-surface': '#e5e2e1',
+              'on-error': '#690005',
+              'secondary-fixed-dim': '#4cd7f6',
+              'surface-container-lowest': '#0e0e0e',
+              'on-tertiary-fixed': '#3d0026',
+              surface: '#131313',
+              'primary-fixed': '#f0dbff',
+              'on-background': '#e5e2e1',
+              tertiary: '#ffafd3',
+              'secondary-container': '#03b5d3',
+              'on-tertiary': '#620040',
+              'outline-variant': '#4d4354',
+              'primary-fixed-dim': '#ddb7ff',
+              'inverse-on-surface': '#313030',
+              'tertiary-fixed': '#ffd8e7',
+              'surface-variant': '#353534',
+              primary: '#ddb7ff',
+              'on-surface-variant': '#cfc2d6',
+              'error-container': '#93000a',
+            },
+            borderRadius: {
+              DEFAULT: '0.25rem',
+              lg: '0.5rem',
+              xl: '0.75rem',
+              full: '9999px',
+            },
+            spacing: {
+              'container-margin-desktop': '40px',
+              'section-gap': '80px',
+              'container-margin-mobile': '20px',
+              'stack-unit': '8px',
+              gutter: '24px',
+            },
+            fontFamily: {
+              'headline-lg-mobile': ['Hanken Grotesk'],
+              'label-sm': ['Geist'],
+              'body-md': ['Inter'],
+              'body-lg': ['Inter'],
+              'headline-xl': ['Hanken Grotesk'],
+              'headline-lg': ['Hanken Grotesk'],
+              'label-md': ['Geist'],
+            },
+            fontSize: {
+              'headline-lg-mobile': [
+                '28px',
+                { lineHeight: '34px', fontWeight: '700' },
+              ],
+              'label-sm': ['12px', { lineHeight: '16px', fontWeight: '600' }],
+              'body-md': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+              'body-lg': ['18px', { lineHeight: '28px', fontWeight: '400' }],
+              'headline-xl': [
+                '48px',
+                {
+                  lineHeight: '56px',
+                  letterSpacing: '-0.02em',
+                  fontWeight: '800',
+                },
+              ],
+              'headline-lg': [
+                '32px',
+                {
+                  lineHeight: '40px',
+                  letterSpacing: '-0.01em',
+                  fontWeight: '700',
+                },
+              ],
+              'label-md': [
+                '14px',
+                {
+                  lineHeight: '20px',
+                  letterSpacing: '0.02em',
+                  fontWeight: '500',
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background text-on-surface font-body-md selection:bg-primary/30 min-h-screen pb-32"
+  >
+    <!-- Top App Bar -->
+    <header
+      class="fixed top-0 w-full z-50 bg-surface-container/70 backdrop-blur-xl border-b border-white/10 flex justify-between items-center px-container-margin-mobile h-16 w-full"
+    >
+      <div class="flex items-center gap-3">
+        <span
+          class="material-symbols-outlined text-primary cursor-pointer active:scale-95 transition-transform"
+          data-icon="menu"
+          >menu</span
+        >
+        <h1
+          class="font-headline-lg-mobile text-headline-lg-mobile font-bold tracking-tighter text-primary"
+        >
+          LUMINA AI
+        </h1>
+      </div>
+      <div class="flex items-center gap-4">
+        <span
+          class="material-symbols-outlined text-on-surface-variant cursor-pointer hover:bg-white/5 p-2 rounded-full transition-colors"
+          data-icon="history"
+          >history</span
+        >
+        <div
+          class="w-8 h-8 rounded-full overflow-hidden border border-primary/30"
+        >
+          <img
+            class="w-full h-full object-cover"
+            data-alt="A professional high-end studio headshot of a creative professional with subtle cinematic lighting, set against a dark minimalist background with soft neon purple rim light. The individual has a focused and visionary expression, embodying the digital artist aesthetic."
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQQ3jSRuHxjn6rdmRuBPAanUbHN8KzvRPwLALHwaDIHg-XCzmmVKdBEzOttaexqC-SZW9R1vIb-O6Tcvjp8aa-936Z15x9YX_ZaBlM8RssKqRmOzu5ZU_5oDshVCf9SJkcmo1mGr2TYWOaDC1dhXtJ3yaebju4JxqieFkVAhoJ2iQXVla3KmFEPk55hMUav6NZjuCwaET8BTwnQvsxYnnqFKhIOSDsa5ORkozuMe8rFHfrB1_md1Ai87cTw-Ml0EFRxpXMEQOvc44"
+          />
+        </div>
+      </div>
+    </header>
+    <main class="mt-24 px-container-margin-mobile max-w-4xl mx-auto">
+      <!-- Title & Introduction -->
+      <div class="mb-10 text-center md:text-left">
+        <h2 class="font-headline-lg text-headline-lg mb-2 text-white">
+          AI Image Generator
+        </h2>
+        <p class="font-body-md text-on-surface-variant max-w-lg">
+          Transform your creative visions into high-fidelity digital art with
+          our precision engine.
+        </p>
+      </div>
+      <!-- Prompt Section -->
+      <div class="space-y-8">
+        <div class="relative group">
+          <label
+            class="block font-label-md text-on-surface-variant mb-3 px-1 uppercase tracking-widest text-[10px]"
+            >Describe your imagination</label
+          >
+          <textarea
+            class="w-full h-48 p-6 glass-panel rounded-2xl text-body-lg text-on-surface placeholder:text-outline focus:outline-none focus:ring-1 focus:ring-primary/50 transition-all resize-none border-white/5"
+            placeholder="E.g. A futuristic glass city under a bioluminescent sky, vibrant cyan and purple reflections, ultra-detailed 8k photography..."
+          ></textarea>
+          <div class="absolute bottom-4 right-4 text-outline font-label-sm">
+            0 / 1000
+          </div>
+        </div>
+        <!-- Styles Grid -->
+        <div>
+          <label
+            class="block font-label-md text-on-surface-variant mb-4 px-1 uppercase tracking-widest text-[10px]"
+            >Visual Style</label
+          >
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <button
+              class="flex flex-col gap-3 p-4 rounded-xl glass-panel border-white/5 hover:border-secondary/50 transition-all group active:scale-95 active-chip"
+              onclick="selectStyle(this)"
+            >
+              <div
+                class="w-full aspect-square rounded-lg overflow-hidden relative"
+              >
+                <img
+                  class="w-full h-full object-cover transition-transform group-hover:scale-110"
+                  data-alt="A stunning digital painting in a high-fantasy art style featuring an ancient glowing temple hidden deep within a mystical foggy forest. Radiant ethereal light beams filter through massive ancient trees, with floating magical particles and a sense of ancient wonder. The color palette is rich with deep greens and warm gold highlights."
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuD8VGRQ1Xu1XKsuuEWG2XGH1dGoZ6-Sr90fGgscxijwPG_tfeXvjV-iZ0b7rjspsvU44D1U3ORIkRBRaB4r-OHMOxnFc9_saf853n4T2m1TJ8TpYOMvE5hFjb4aCwHNXdc22y1IP2XsDVSh5bp0AZuhOJChmjUl2OWoh7Xds4MQTs4WtU_6LmkXDaUjbQJBfLhMtgiJ16r7Cr87wftyBx0tOiNe3a06tLxZ1lrG0rXVt84o_GMvbXhR2xgny4trQcjprrpufCVYL6A"
+                />
+              </div>
+              <span class="font-label-md text-center">Fantasy</span>
+            </button>
+            <button
+              class="flex flex-col gap-3 p-4 rounded-xl glass-panel border-white/5 hover:border-secondary/50 transition-all group active:scale-95"
+              onclick="selectStyle(this)"
+            >
+              <div
+                class="w-full aspect-square rounded-lg overflow-hidden relative"
+              >
+                <img
+                  class="w-full h-full object-cover transition-transform group-hover:scale-110"
+                  data-alt="A hyper-realistic cinematic portrait of a person in high-performance outdoor gear, standing atop a mountain peak during the golden hour. The lighting is crisp and natural, highlighting intricate textures of the fabric and the stunning panoramic vista in the background. The mood is professional, rugged, and breathtakingly detailed."
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDoYLYnAaUTY-2HUgY6X1r1vpmU2ec0yqgGAejgj8fbWju5B0ZI9VrnFcCWjHr0Nx5Nx1dc1uhKCeN9_buWMDZOFdx70pGEgDSAG3oX_9GRekkRxa81nzg29PrnAcpwTtInxsEpatVDA4ifkrMupd77iKrquAUQ-COLEmXzBsDgKw8z6U2XC04vlUB1ocnvlB4eYGuXG_GKlUJk4oSaegZYyJ6L5q1lCWLyFDSLz33Je1VUwxlCSUiZ9RV_hzhfqmj-dLAOOY1Kzgk"
+                />
+              </div>
+              <span class="font-label-md text-center">Realistic</span>
+            </button>
+            <button
+              class="flex flex-col gap-3 p-4 rounded-xl glass-panel border-white/5 hover:border-secondary/50 transition-all group active:scale-95"
+              onclick="selectStyle(this)"
+            >
+              <div
+                class="w-full aspect-square rounded-lg overflow-hidden relative"
+              >
+                <img
+                  class="w-full h-full object-cover transition-transform group-hover:scale-110"
+                  data-alt="Modern high-quality anime art style featuring a character standing in a rain-slicked Tokyo alleyway at night. Neon signs in Japanese characters reflect off puddles, with deep blues and vibrant pinks dominating the palette. The art style is clean, expressive, and captures a sense of melancholic urban beauty."
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8M3XZ7ujTJKpzR2moFVdjmL2YNpOL4Yl-GFPUgCSjMWQz-_98t5ltQAxGCkrUUUyucm9UTRCNR_RD2Can9wcmV0qOwd_4K4gMb6Y-svtnIxqweUWPw4Bni0LTdw5BUEL8SbyjVGLYhv5AAn9SgueBtjmiTh2mI1ecjxsBsTucMWHWmFCFNBkbkq1mCfAq7-ym94DE9oNGYWzJiSoJ0p5e83V_EamolIUoPHpjbP_LJzkB97t2K46S3kUoXN0a1uGWBuvGO2UIelQ"
+                />
+              </div>
+              <span class="font-label-md text-center">Anime</span>
+            </button>
+            <button
+              class="flex flex-col gap-3 p-4 rounded-xl glass-panel border-white/5 hover:border-secondary/50 transition-all group active:scale-95"
+              onclick="selectStyle(this)"
+            >
+              <div
+                class="w-full aspect-square rounded-lg overflow-hidden relative"
+              >
+                <img
+                  class="w-full h-full object-cover transition-transform group-hover:scale-110"
+                  data-alt="Cyberpunk digital art masterpiece depicting a dense urban sprawl of towering skyscrapers under a permanent nocturnal haze. Flying vehicles leave light trails of neon cyan and electric purple. The architecture is a mix of high-tech machinery and industrial grit, with massive holographic advertisements illuminating the streets."
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAL6N71kCa5A43lRkaeXe3kI7Lf5DWGZ8HmWUx5vwfAT331Vi80PuSkpT2drGYY3IOeNFGqJP2FvR48nA1sDR0LhwG67aHUOSlQmqYlO0hkoMMWAck44nnSjbhjA3muCua6qfKbcDXQJZSWWzo-6g67F1HomJhHspzrH2VTDasY5iKIvoF2zPqDCGBxTFNvFph-QeH7oVJllcyAJ_juuIBpsRRIL60kyzDv_zsTx4TIU07YCcGCHlL45NOr7x3Xc7rvU8R0lTtR3UU"
+                />
+              </div>
+              <span class="font-label-md text-center">Cyberpunk</span>
+            </button>
+          </div>
+        </div>
+        <!-- Settings Row -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <label
+              class="block font-label-md text-on-surface-variant mb-4 px-1 uppercase tracking-widest text-[10px]"
+              >Aspect Ratio</label
+            >
+            <div class="flex gap-4">
+              <button
+                class="flex-1 py-4 rounded-xl glass-panel border-white/5 flex flex-col items-center gap-2 hover:border-secondary transition-all active-chip"
+                onclick="selectRatio(this)"
+              >
+                <div class="w-6 h-6 border-2 border-current rounded-sm"></div>
+                <span class="font-label-sm">1:1</span>
+              </button>
+              <button
+                class="flex-1 py-4 rounded-xl glass-panel border-white/5 flex flex-col items-center gap-2 hover:border-secondary transition-all"
+                onclick="selectRatio(this)"
+              >
+                <div class="w-8 h-4 border-2 border-current rounded-sm"></div>
+                <span class="font-label-sm">16:9</span>
+              </button>
+              <button
+                class="flex-1 py-4 rounded-xl glass-panel border-white/5 flex flex-col items-center gap-2 hover:border-secondary transition-all"
+                onclick="selectRatio(this)"
+              >
+                <div class="w-4 h-8 border-2 border-current rounded-sm"></div>
+                <span class="font-label-sm">9:16</span>
+              </button>
+            </div>
+          </div>
+          <div>
+            <label
+              class="block font-label-md text-on-surface-variant mb-4 px-1 uppercase tracking-widest text-[10px]"
+              >AI Creativity (Guidance)</label
+            >
+            <div class="px-2 pt-4">
+              <input
+                class="w-full h-1 bg-surface-container-highest rounded-lg appearance-none cursor-pointer"
+                max="10"
+                min="1"
+                type="range"
+                value="7"
+              />
+              <div class="flex justify-between mt-3 font-label-sm text-outline">
+                <span>Precise</span>
+                <span>Creative</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Bottom Action Area -->
+    <div
+      class="fixed bottom-0 left-0 w-full p-6 md:p-8 bg-gradient-to-t from-background via-background/90 to-transparent z-40"
+    >
+      <div class="max-w-4xl mx-auto">
+        <button
+          class="w-full py-5 bg-primary text-on-primary font-headline-lg-mobile text-headline-lg-mobile rounded-full font-bold shadow-[0_0_30px_rgba(221,183,255,0.3)] hover:shadow-[0_0_40px_rgba(221,183,255,0.5)] active:scale-[0.98] transition-all flex items-center justify-center gap-3 group relative overflow-hidden"
+        >
+          <span
+            class="material-symbols-outlined group-hover:rotate-12 transition-transform"
+            data-icon="auto_fix_high"
+            >auto_fix_high</span
+          >
+          Generate Masterpiece
+          <div
+            class="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+          ></div>
+        </button>
+      </div>
+    </div>
+    <!-- Bottom Nav Bar -->
+    <nav
+      class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] md:max-w-md rounded-full z-50 bg-surface-container-low/70 backdrop-blur-2xl border border-white/10 shadow-[0_0_20px_rgba(76,215,246,0.15)] flex justify-around items-center py-2 px-4"
+    >
+      <div
+        class="flex items-center justify-center text-on-surface-variant w-12 h-12 hover:text-secondary transition-all cursor-pointer"
+      >
+        <span class="material-symbols-outlined" data-icon="home">home</span>
+      </div>
+      <div
+        class="flex items-center justify-center bg-secondary/20 text-secondary rounded-full w-12 h-12 shadow-[0_0_15px_rgba(76,215,246,0.3)] cursor-pointer"
+      >
+        <span class="material-symbols-outlined" data-icon="auto_fix_high"
+          >auto_fix_high</span
+        >
+      </div>
+      <div
+        class="flex items-center justify-center text-on-surface-variant w-12 h-12 hover:text-secondary transition-all cursor-pointer"
+      >
+        <span class="material-symbols-outlined" data-icon="add_a_photo"
+          >add_a_photo</span
+        >
+      </div>
+      <div
+        class="flex items-center justify-center text-on-surface-variant w-12 h-12 hover:text-secondary transition-all cursor-pointer"
+      >
+        <span class="material-symbols-outlined" data-icon="history"
+          >history</span
+        >
+      </div>
+      <div
+        class="flex items-center justify-center text-on-surface-variant w-12 h-12 hover:text-secondary transition-all cursor-pointer"
+      >
+        <span class="material-symbols-outlined" data-icon="person">person</span>
+      </div>
+    </nav>
+    <script>
+      function selectStyle(element) {
+        // Remove active class from siblings
+        const parent = element.parentElement;
+        parent.querySelectorAll('button').forEach((btn) => {
+          btn.classList.remove('active-chip');
+        });
+        // Add active class to selected
+        element.classList.add('active-chip');
+      }
+
+      function selectRatio(element) {
+        const parent = element.parentElement;
+        parent.querySelectorAll('button').forEach((btn) => {
+          btn.classList.remove('active-chip');
+        });
+        element.classList.add('active-chip');
+      }
+
+      // Lightweight interactive hover for buttons
+      document.querySelectorAll('button').forEach((button) => {
+        button.addEventListener('mousedown', () => {
+          button.style.transform = 'scale(0.95)';
+        });
+        button.addEventListener('mouseup', () => {
+          button.style.transform = 'scale(1)';
+        });
+        button.addEventListener('mouseleave', () => {
+          button.style.transform = 'scale(1)';
+        });
+      });
+    </script>
+  </body>
+</html>

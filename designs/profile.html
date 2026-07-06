@@ -1,0 +1,455 @@
+<!doctype html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Profile | LUMINA AI</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Hanken+Grotesk:wght@700;800&amp;family=Geist:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'on-tertiary-container': '#560038',
+              'on-secondary-container': '#00424e',
+              'surface-container-high': '#2a2a2a',
+              'surface-container': '#201f1f',
+              'on-surface': '#e5e2e1',
+              secondary: '#4cd7f6',
+              'on-error-container': '#ffdad6',
+              'surface-dim': '#131313',
+              'surface-container-highest': '#353534',
+              'on-tertiary-fixed-variant': '#85145a',
+              'on-primary-fixed': '#2c0051',
+              'secondary-fixed': '#acedff',
+              'surface-bright': '#3a3939',
+              'on-secondary': '#003640',
+              background: '#131313',
+              outline: '#988d9f',
+              'on-primary': '#490080',
+              'on-secondary-fixed-variant': '#004e5c',
+              'surface-container-low': '#1c1b1b',
+              'on-secondary-fixed': '#001f26',
+              error: '#ffb4ab',
+              'on-primary-fixed-variant': '#6900b3',
+              'surface-tint': '#ddb7ff',
+              'primary-container': '#b76dff',
+              'on-primary-container': '#400071',
+              'tertiary-container': '#e364a7',
+              'tertiary-fixed-dim': '#ffafd3',
+              'inverse-primary': '#842bd2',
+              'inverse-surface': '#e5e2e1',
+              'on-error': '#690005',
+              'secondary-fixed-dim': '#4cd7f6',
+              'surface-container-lowest': '#0e0e0e',
+              'on-tertiary-fixed': '#3d0026',
+              surface: '#131313',
+              'primary-fixed': '#f0dbff',
+              'on-background': '#e5e2e1',
+              tertiary: '#ffafd3',
+              'secondary-container': '#03b5d3',
+              'on-tertiary': '#620040',
+              'outline-variant': '#4d4354',
+              'primary-fixed-dim': '#ddb7ff',
+              'inverse-on-surface': '#313030',
+              'tertiary-fixed': '#ffd8e7',
+              'surface-variant': '#353534',
+              primary: '#ddb7ff',
+              'on-surface-variant': '#cfc2d6',
+              'error-container': '#93000a',
+            },
+            borderRadius: {
+              DEFAULT: '0.25rem',
+              lg: '0.5rem',
+              xl: '0.75rem',
+              full: '9999px',
+            },
+            spacing: {
+              'container-margin-desktop': '40px',
+              'section-gap': '80px',
+              'container-margin-mobile': '20px',
+              'stack-unit': '8px',
+              gutter: '24px',
+            },
+            fontFamily: {
+              'headline-lg-mobile': ['Hanken Grotesk'],
+              'label-sm': ['Geist'],
+              'body-md': ['Inter'],
+              'body-lg': ['Inter'],
+              'headline-xl': ['Hanken Grotesk'],
+              'headline-lg': ['Hanken Grotesk'],
+              'label-md': ['Geist'],
+            },
+            fontSize: {
+              'headline-lg-mobile': [
+                '28px',
+                { lineHeight: '34px', fontWeight: '700' },
+              ],
+              'label-sm': ['12px', { lineHeight: '16px', fontWeight: '600' }],
+              'body-md': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+              'body-lg': ['18px', { lineHeight: '28px', fontWeight: '400' }],
+              'headline-xl': [
+                '48px',
+                {
+                  lineHeight: '56px',
+                  letterSpacing: '-0.02em',
+                  fontWeight: '800',
+                },
+              ],
+              'headline-lg': [
+                '32px',
+                {
+                  lineHeight: '40px',
+                  letterSpacing: '-0.01em',
+                  fontWeight: '700',
+                },
+              ],
+              'label-md': [
+                '14px',
+                {
+                  lineHeight: '20px',
+                  letterSpacing: '0.02em',
+                  fontWeight: '500',
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .glass-panel {
+        background: rgba(20, 20, 20, 0.7);
+        backdrop-filter: blur(24px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-top-color: rgba(255, 255, 255, 0.15);
+      }
+      .neon-glow-purple:hover {
+        box-shadow: 0 0 20px rgba(221, 183, 255, 0.2);
+      }
+      .neon-glow-cyan {
+        box-shadow: 0 0 15px rgba(76, 215, 246, 0.3);
+      }
+      .shimmer-progress {
+        background: linear-gradient(
+          90deg,
+          #ddb7ff 0%,
+          #4cd7f6 50%,
+          #ddb7ff 100%
+        );
+        background-size: 200% 100%;
+        animation: shimmer 3s infinite linear;
+      }
+      @keyframes shimmer {
+        0% {
+          background-position: 200% 0;
+        }
+        100% {
+          background-position: -200% 0;
+        }
+      }
+      .material-symbols-outlined {
+        font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24;
+        vertical-align: middle;
+      }
+      body::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background text-on-surface selection:bg-primary/30 min-h-screen pb-32"
+  >
+    <!-- Top App Bar -->
+    <header
+      class="fixed top-0 w-full z-50 bg-surface-container/70 backdrop-blur-xl border-b border-white/10 flex justify-between items-center px-container-margin-mobile h-16"
+    >
+      <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-primary">menu</span>
+        <h1
+          class="font-headline-lg-mobile text-headline-lg-mobile font-bold tracking-tighter text-primary"
+        >
+          LUMINA AI
+        </h1>
+      </div>
+      <div
+        class="w-10 h-10 rounded-full overflow-hidden border border-primary/20"
+      >
+        <img
+          class="w-full h-full object-cover"
+          data-alt="A high-quality, professional headshot of a creative digital artist with soft neon purple lighting from the side, set against a dark, minimalist studio background. The aesthetic is clean, premium, and focused, reflecting a cutting-edge digital workspace environment."
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuDq7LhC1-CUkOcM1RUdPOC4pJz_soQtRE_9OIexfxNeUMVHmCH1GQIqDsG3gDHQWeQZPDz7nl4Wu0hvKl-6kqc1b1dCB-HmFoHK_7M4Ay7hvsAVe9vAQtKN9cV_vmvn5cISTk6-BU7O_xuwkc4ITO3Ev4Mz5LlyeOPb95rCliQpyGQiFuJSPS_5ViMq6yGNNvh1aR0UJ2kI7ZCYMU-BvKwDtDsyaQ1TQ5UTLkRr1Xc_j3eLgoBngvClRPXfxkanbxe2DVj-PYqGPQo"
+        />
+      </div>
+    </header>
+    <main class="pt-24 px-container-margin-mobile max-w-2xl mx-auto space-y-8">
+      <!-- Header / Avatar Section -->
+      <section class="flex flex-col items-center text-center space-y-4">
+        <div class="relative">
+          <div
+            class="w-32 h-32 rounded-full overflow-hidden border-2 border-primary p-1 bg-surface-container-highest"
+          >
+            <img
+              class="w-full h-full object-cover rounded-full"
+              data-alt="A large, striking portrait of a digital creator with an artistic, futuristic style. The lighting uses deep cyan and magenta tones, reflecting off sleek surfaces. The mood is creative and professional, consistent with a high-end AI photo studio brand identity."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPk8z_aniOSLjn-ZEca2MRKwnCuGekmnz9q4sRXYC7XAJQDtWFvZDk8lnJXfvMaiL5-e1EqRSB3yRHL8VWj3MU1rd4sE0QAnC_0s8lkBBH9zbpuQtNrFQyvQjZxLqp9D4U_JS_DeEmKF7FTh-Eb9yQ4jz_Hbs5wMvI6PwxJnWhwXceBpCYkaVRRFFkwZ78uKJSDzyJXlMZ4kqHQnNNlBgQYfiy9n_GJGs06dqMEFBubBG7kXD40tsCzs7n4gnU5COn56teH3E4c-A"
+            />
+          </div>
+          <div
+            class="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-primary text-on-primary px-4 py-0.5 rounded-full font-label-sm text-label-sm shadow-[0_0_15px_rgba(221,183,255,0.4)]"
+          >
+            PRO
+          </div>
+        </div>
+        <div>
+          <h2 class="font-headline-lg text-headline-lg text-on-surface">
+            PixelMind AI
+          </h2>
+          <p class="font-body-md text-on-surface-variant">
+            digital.alchemist@lumina.studio
+          </p>
+        </div>
+      </section>
+      <!-- Storage Progress Card -->
+      <section class="glass-panel rounded-3xl p-6 space-y-4">
+        <div class="flex justify-between items-end">
+          <div class="space-y-1">
+            <h3
+              class="font-label-md text-label-md text-secondary uppercase tracking-wider"
+            >
+              Cloud Storage
+            </h3>
+            <p class="font-headline-lg-mobile text-headline-lg-mobile">
+              1.2 TB
+              <span class="text-on-surface-variant font-body-md">/ 2 TB</span>
+            </p>
+          </div>
+          <span class="material-symbols-outlined text-on-surface-variant"
+            >cloud_queue</span
+          >
+        </div>
+        <div class="h-3 w-full bg-white/5 rounded-full overflow-hidden">
+          <div
+            class="h-full w-[60%] shimmer-progress rounded-full neon-glow-cyan"
+          ></div>
+        </div>
+        <p
+          class="font-label-sm text-label-sm text-on-surface-variant text-right"
+        >
+          60% space used
+        </p>
+      </section>
+      <!-- Settings List -->
+      <section class="space-y-3">
+        <h3
+          class="px-2 font-label-md text-label-md text-on-surface-variant uppercase tracking-widest"
+        >
+          General Settings
+        </h3>
+        <div
+          class="glass-panel rounded-2xl overflow-hidden divide-y divide-white/5"
+        >
+          <!-- Membership -->
+          <button
+            class="w-full flex items-center justify-between p-4 hover:bg-white/5 transition-colors group"
+          >
+            <div class="flex items-center gap-4">
+              <div
+                class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary"
+              >
+                <span class="material-symbols-outlined">stars</span>
+              </div>
+              <span class="font-body-md text-on-surface">Membership</span>
+            </div>
+            <span
+              class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform"
+              >chevron_right</span
+            >
+          </button>
+          <!-- Notifications -->
+          <div class="flex items-center justify-between p-4">
+            <div class="flex items-center gap-4">
+              <div
+                class="w-10 h-10 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary"
+              >
+                <span class="material-symbols-outlined">notifications</span>
+              </div>
+              <span class="font-body-md text-on-surface">Notifications</span>
+            </div>
+            <label class="relative inline-flex items-center cursor-pointer">
+              <input checked="" class="sr-only peer" type="checkbox" />
+              <div
+                class="w-11 h-6 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"
+              ></div>
+            </label>
+          </div>
+          <!-- Dark Theme -->
+          <div class="flex items-center justify-between p-4">
+            <div class="flex items-center gap-4">
+              <div
+                class="w-10 h-10 rounded-xl bg-tertiary/10 flex items-center justify-center text-tertiary"
+              >
+                <span class="material-symbols-outlined">dark_mode</span>
+              </div>
+              <span class="font-body-md text-on-surface">Dark Theme</span>
+            </div>
+            <label class="relative inline-flex items-center cursor-pointer">
+              <input checked="" class="sr-only peer" type="checkbox" />
+              <div
+                class="w-11 h-6 bg-white/10 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"
+              ></div>
+            </label>
+          </div>
+          <!-- Language -->
+          <button
+            class="w-full flex items-center justify-between p-4 hover:bg-white/5 transition-colors group"
+          >
+            <div class="flex items-center gap-4">
+              <div
+                class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-on-surface-variant"
+              >
+                <span class="material-symbols-outlined">language</span>
+              </div>
+              <div class="text-left">
+                <span class="block font-body-md text-on-surface">Language</span>
+                <span class="block font-label-sm text-on-surface-variant"
+                  >English (US)</span
+                >
+              </div>
+            </div>
+            <span
+              class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform"
+              >chevron_right</span
+            >
+          </button>
+          <!-- Privacy -->
+          <button
+            class="w-full flex items-center justify-between p-4 hover:bg-white/5 transition-colors group"
+          >
+            <div class="flex items-center gap-4">
+              <div
+                class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-on-surface-variant"
+              >
+                <span class="material-symbols-outlined">security</span>
+              </div>
+              <span class="font-body-md text-on-surface"
+                >Privacy &amp; Security</span
+              >
+            </div>
+            <span
+              class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform"
+              >chevron_right</span
+            >
+          </button>
+          <!-- Help -->
+          <button
+            class="w-full flex items-center justify-between p-4 hover:bg-white/5 transition-colors group"
+          >
+            <div class="flex items-center gap-4">
+              <div
+                class="w-10 h-10 rounded-xl bg-white/5 flex items-center justify-center text-on-surface-variant"
+              >
+                <span class="material-symbols-outlined">help</span>
+              </div>
+              <span class="font-body-md text-on-surface">Help Center</span>
+            </div>
+            <span
+              class="material-symbols-outlined text-on-surface-variant group-hover:translate-x-1 transition-transform"
+              >chevron_right</span
+            >
+          </button>
+        </div>
+      </section>
+      <!-- Log Out Button -->
+      <section class="pt-8 flex flex-col items-center">
+        <button
+          class="px-8 py-3 rounded-full bg-error-container/20 text-error font-label-md text-label-md hover:bg-error-container/30 transition-all active:scale-95 border border-error/20"
+        >
+          Log Out
+        </button>
+        <p
+          class="mt-4 font-label-sm text-label-sm text-on-surface-variant opacity-50"
+        >
+          Lumina Studio v4.2.0-stable
+        </p>
+      </section>
+    </main>
+    <!-- Bottom Navigation Bar -->
+    <nav
+      class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] rounded-full z-50 bg-surface-container-low/70 backdrop-blur-2xl border border-white/10 shadow-[0_0_20px_rgba(76,215,246,0.15)] flex justify-around items-center py-2 px-4"
+    >
+      <button
+        class="flex items-center justify-center text-on-surface-variant w-12 h-12 hover:text-secondary transition-all active:scale-90"
+      >
+        <span class="material-symbols-outlined">home</span>
+      </button>
+      <button
+        class="flex items-center justify-center text-on-surface-variant w-12 h-12 hover:text-secondary transition-all active:scale-90"
+      >
+        <span class="material-symbols-outlined">auto_fix_high</span>
+      </button>
+      <button
+        class="flex items-center justify-center text-on-surface-variant w-12 h-12 hover:text-secondary transition-all active:scale-90"
+      >
+        <span class="material-symbols-outlined">add_a_photo</span>
+      </button>
+      <button
+        class="flex items-center justify-center text-on-surface-variant w-12 h-12 hover:text-secondary transition-all active:scale-90"
+      >
+        <span class="material-symbols-outlined">history</span>
+      </button>
+      <!-- ACTIVE TAB: Profile (Person) -->
+      <button
+        class="flex items-center justify-center bg-secondary/20 text-secondary rounded-full w-12 h-12 shadow-[0_0_15px_rgba(76,215,246,0.3)] active:scale-90"
+      >
+        <span
+          class="material-symbols-outlined"
+          style="font-variation-settings: 'FILL' 1"
+          >person</span
+        >
+      </button>
+    </nav>
+    <script>
+      // Simple micro-interaction for toggle feedback
+      document.querySelectorAll('input[type="checkbox"]').forEach((toggle) => {
+        toggle.addEventListener('change', function () {
+          const haptic = window.navigator.vibrate;
+          if (haptic) haptic(10);
+        });
+      });
+
+      // Hover effect for setting buttons
+      document.querySelectorAll('.group').forEach((btn) => {
+        btn.addEventListener('mouseenter', () => {
+          btn.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
+        });
+        btn.addEventListener('mouseleave', () => {
+          btn.style.backgroundColor = 'transparent';
+        });
+      });
+    </script>
+  </body>
+</html>

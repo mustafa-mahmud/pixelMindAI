@@ -1,0 +1,567 @@
+<!doctype html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>PixelMind AI - History</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Hanken+Grotesk:wght@700;800&amp;family=Geist:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'on-tertiary-container': '#560038',
+              'on-secondary-container': '#00424e',
+              'surface-container-high': '#2a2a2a',
+              'surface-container': '#201f1f',
+              'on-surface': '#e5e2e1',
+              secondary: '#4cd7f6',
+              'on-error-container': '#ffdad6',
+              'surface-dim': '#131313',
+              'surface-container-highest': '#353534',
+              'on-tertiary-fixed-variant': '#85145a',
+              'on-primary-fixed': '#2c0051',
+              'secondary-fixed': '#acedff',
+              'surface-bright': '#3a3939',
+              'on-secondary': '#003640',
+              background: '#131313',
+              outline: '#988d9f',
+              'on-primary': '#490080',
+              'on-secondary-fixed-variant': '#004e5c',
+              'surface-container-low': '#1c1b1b',
+              'on-secondary-fixed': '#001f26',
+              error: '#ffb4ab',
+              'on-primary-fixed-variant': '#6900b3',
+              'surface-tint': '#ddb7ff',
+              'primary-container': '#b76dff',
+              'on-primary-container': '#400071',
+              'tertiary-container': '#e364a7',
+              'tertiary-fixed-dim': '#ffafd3',
+              'inverse-primary': '#842bd2',
+              'inverse-surface': '#e5e2e1',
+              'on-error': '#690005',
+              'secondary-fixed-dim': '#4cd7f6',
+              'surface-container-lowest': '#0e0e0e',
+              'on-tertiary-fixed': '#3d0026',
+              surface: '#131313',
+              'primary-fixed': '#f0dbff',
+              'on-background': '#e5e2e1',
+              tertiary: '#ffafd3',
+              'secondary-container': '#03b5d3',
+              'on-tertiary': '#620040',
+              'outline-variant': '#4d4354',
+              'primary-fixed-dim': '#ddb7ff',
+              'inverse-on-surface': '#313030',
+              'tertiary-fixed': '#ffd8e7',
+              'surface-variant': '#353534',
+              primary: '#ddb7ff',
+              'on-surface-variant': '#cfc2d6',
+              'error-container': '#93000a',
+            },
+            borderRadius: {
+              DEFAULT: '0.25rem',
+              lg: '0.5rem',
+              xl: '0.75rem',
+              full: '9999px',
+            },
+            spacing: {
+              'container-margin-desktop': '40px',
+              'section-gap': '80px',
+              'container-margin-mobile': '20px',
+              'stack-unit': '8px',
+              gutter: '24px',
+            },
+            fontFamily: {
+              'headline-lg-mobile': ['Hanken Grotesk'],
+              'label-sm': ['Geist'],
+              'body-md': ['Inter'],
+              'body-lg': ['Inter'],
+              'headline-xl': ['Hanken Grotesk'],
+              'headline-lg': ['Hanken Grotesk'],
+              'label-md': ['Geist'],
+            },
+            fontSize: {
+              'headline-lg-mobile': [
+                '28px',
+                { lineHeight: '34px', fontWeight: '700' },
+              ],
+              'label-sm': ['12px', { lineHeight: '16px', fontWeight: '600' }],
+              'body-md': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+              'body-lg': ['18px', { lineHeight: '28px', fontWeight: '400' }],
+              'headline-xl': [
+                '48px',
+                {
+                  lineHeight: '56px',
+                  letterSpacing: '-0.02em',
+                  fontWeight: '800',
+                },
+              ],
+              'headline-lg': [
+                '32px',
+                {
+                  lineHeight: '40px',
+                  letterSpacing: '-0.01em',
+                  fontWeight: '700',
+                },
+              ],
+              'label-md': [
+                '14px',
+                {
+                  lineHeight: '20px',
+                  letterSpacing: '0.02em',
+                  fontWeight: '500',
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        background-color: #000000;
+        color: #e5e2e1;
+        -webkit-font-smoothing: antialiased;
+      }
+      .glass {
+        background: rgba(20, 20, 20, 0.7);
+        backdrop-filter: blur(20px);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .masonry-grid {
+        columns: 2;
+        column-gap: 12px;
+      }
+      @media (min-width: 1024px) {
+        .masonry-grid {
+          columns: 3;
+        }
+      }
+      .masonry-item {
+        break-inside: avoid;
+        margin-bottom: 12px;
+      }
+      .neon-glow:active {
+        box-shadow: 0 0 20px rgba(76, 215, 246, 0.3);
+      }
+      .selection-active .select-circle {
+        opacity: 1;
+        transform: scale(1);
+      }
+      .material-symbols-outlined {
+        font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24;
+      }
+    </style>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+  </head>
+  <body class="font-body-md text-body-md min-h-screen pb-32">
+    <!-- Top App Bar -->
+    <header
+      class="fixed top-0 w-full z-50 bg-surface-container/70 backdrop-blur-xl border-b border-white/10 h-16 flex justify-between items-center px-container-margin-mobile"
+    >
+      <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-primary">menu</span>
+        <h1
+          class="font-headline-lg-mobile text-headline-lg-mobile font-bold tracking-tighter text-primary"
+        >
+          LUMINA AI
+        </h1>
+      </div>
+      <div class="flex items-center gap-4">
+        <button
+          class="p-2 hover:bg-white/5 rounded-full transition-colors active:scale-95 duration-200"
+        >
+          <span class="material-symbols-outlined text-on-surface-variant"
+            >search</span
+          >
+        </button>
+        <div
+          class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center overflow-hidden"
+        >
+          <img
+            class="w-full h-full object-cover"
+            data-alt="A cinematic close-up portrait of a digital artist with neon purple reflections on their face, high-contrast dark background, professional studio lighting, 8k resolution, cyberpunk aesthetic."
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiUv4jN6DDji9jvIbySCFbw6lWeGNseyyFa4br485QO3GX9AQ5piGLbWKDbwwkIh8-gDejs1pZ--WWFyg5q7dHGiLIPd_cRYzQbjXa_u78uhTvaZm7e-CPJRfCYLkJAP9MZNytR98JcNQFeGIxuLpYsH594_mJ-D1wDMk3gV5zaMYwpurAfzHb51NXaGd4WIDw3CH_aRMwA_t650r63Vum07Lyj8hq1w7p7xPqOfdkIfmzmGI6uEHpOPVPJB9F08xPqWFJyfz9Wm0"
+          />
+        </div>
+      </div>
+    </header>
+    <main class="pt-24 px-container-margin-mobile">
+      <!-- Search & Filter Area -->
+      <div class="mb-8 space-y-4">
+        <div class="flex justify-between items-end">
+          <div>
+            <h2 class="font-headline-lg text-headline-lg text-on-surface">
+              History
+            </h2>
+            <p class="font-label-md text-label-md text-on-surface-variant">
+              248 items created
+            </p>
+          </div>
+          <button
+            class="px-4 py-2 rounded-full border border-white/10 font-label-md text-label-md hover:bg-white/5 transition-all text-secondary"
+            id="select-btn"
+            onclick="toggleSelectionMode()"
+          >
+            Select
+          </button>
+        </div>
+        <div class="relative group">
+          <span
+            class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant group-focus-within:text-secondary transition-colors"
+            >search</span
+          >
+          <input
+            class="w-full bg-surface-container-lowest border border-white/5 rounded-xl py-3 pl-12 pr-4 focus:ring-1 focus:ring-secondary focus:border-secondary outline-none transition-all placeholder:text-on-surface-variant/40"
+            placeholder="Search creations..."
+            type="text"
+          />
+        </div>
+      </div>
+      <!-- Section: Today -->
+      <section class="mb-10">
+        <h3
+          class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant/60 mb-4 px-1"
+        >
+          Today
+        </h3>
+        <div class="masonry-grid" id="history-gallery">
+          <!-- Item 1 -->
+          <div
+            class="masonry-item relative group cursor-pointer"
+            onclick="handleItemClick(this)"
+          >
+            <div
+              class="absolute top-3 left-3 z-10 select-circle opacity-0 scale-90 transition-all duration-200"
+            >
+              <div
+                class="w-6 h-6 rounded-full border-2 border-secondary bg-black/40 flex items-center justify-center"
+              >
+                <span
+                  class="material-symbols-outlined text-secondary text-[18px] hidden check-icon"
+                  style="font-variation-settings: 'FILL' 1"
+                  >check_circle</span
+                >
+              </div>
+            </div>
+            <div
+              class="rounded-2xl overflow-hidden border border-white/10 bg-surface-container-low transition-transform duration-300 group-hover:scale-[1.02]"
+            >
+              <img
+                class="w-full h-auto"
+                data-alt="A hyper-realistic AI portrait of a futuristic woman with bioluminescent skin patterns, ethereal glowing eyes, soft volumetric lighting in a deep obsidian environment, digital art style, vibrant cyan and purple accents."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9UVaywK6DDx6IkMw2HdVTUvt1RpmYcbzAZbkTTzDKeSiSjJ-9EeWe1hnX_zD_TyOGzjOYDLqTn_wPMOVZJK_BfgBtd-R9Rqkb4kUJMBZBJaK4QDX9szLxmftzReYF4iVSIDq5QmCuJtnbi-sFbV2_6UB9p_MgPq_wxpaCL6mvJgLMX7TkNUKtX9Dv5jSz3WIFLO8L9CAz-TPRkv3LfMtmnZlqZCT8OpuWdChopubQCR9ytqec0joWHZ_U8xsmIECNnWTo0YeY46M"
+              />
+              <div
+                class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent"
+              >
+                <span
+                  class="px-2 py-0.5 rounded bg-secondary/20 text-secondary font-label-sm text-[10px] uppercase"
+                  >AI Portrait</span
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Item 2 -->
+          <div
+            class="masonry-item relative group cursor-pointer"
+            onclick="handleItemClick(this)"
+          >
+            <div
+              class="absolute top-3 left-3 z-10 select-circle opacity-0 scale-90 transition-all duration-200"
+            >
+              <div
+                class="w-6 h-6 rounded-full border-2 border-secondary bg-black/40 flex items-center justify-center"
+              >
+                <span
+                  class="material-symbols-outlined text-secondary text-[18px] hidden check-icon"
+                  style="font-variation-settings: 'FILL' 1"
+                  >check_circle</span
+                >
+              </div>
+            </div>
+            <div
+              class="rounded-2xl overflow-hidden border border-white/10 bg-surface-container-low transition-transform duration-300 group-hover:scale-[1.02]"
+            >
+              <img
+                class="w-full h-auto"
+                data-alt="A breathtaking alien landscape featuring floating crystalline islands under a triple-moon sky, vibrant neon flora casting long purple shadows, cinematic wide shot, ultra-detailed 8k render, dreamlike atmosphere."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwMl4tXriRwUABnYIYA8K0Tp6jl-RstSJshl_fYz2XFLTdq3N9RZdazaX90WnqDD_lL7uzNae4xuMUUbY0j0lO6idcT8yLE4SpeU5FSbMdqdtLlCpJnd57uo0Rkc-2R9AXy3PwFVLUvC7PKhi8C8XuRkyrFWaTPG3F9uj38PMchpF2izNh6yNk_dG7M8UtrrxthWd6ZEggHMMeMsHmFPjzcltnxPUqG6_9aHZMRm5nmYOvzxJACwZhcUr5LCWBxbhgGclh_JCDeqY"
+              />
+              <div
+                class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent"
+              >
+                <span
+                  class="px-2 py-0.5 rounded bg-tertiary/20 text-tertiary font-label-sm text-[10px] uppercase"
+                  >Landscape</span
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Item 3 -->
+          <div
+            class="masonry-item relative group cursor-pointer"
+            onclick="handleItemClick(this)"
+          >
+            <div
+              class="absolute top-3 left-3 z-10 select-circle opacity-0 scale-90 transition-all duration-200"
+            >
+              <div
+                class="w-6 h-6 rounded-full border-2 border-secondary bg-black/40 flex items-center justify-center"
+              >
+                <span
+                  class="material-symbols-outlined text-secondary text-[18px] hidden check-icon"
+                  style="font-variation-settings: 'FILL' 1"
+                  >check_circle</span
+                >
+              </div>
+            </div>
+            <div
+              class="rounded-2xl overflow-hidden border border-white/10 bg-surface-container-low transition-transform duration-300 group-hover:scale-[1.02]"
+            >
+              <img
+                class="w-full h-auto"
+                data-alt="An abstract 3D composition of fluid metallic spheres suspended in dark space, reflecting vibrant neon pink and cyan light streaks, high gloss finish, minimalist tech aesthetic, elegant and professional."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCED-05mCXqXr8EaQslhSFRUu837FgscAGiRD2akmu6y7BQUEnNHn3rKQt6NCvF9DdtZhZhaz9A2r0KRY6oS2aT2_igu0Qoxk01eQdBw5p0yduHNah6IB-WQbpu07pvjKLWU_MWosaDRIwqPih7Ndm6RaldZc-NG6v2RV03bYsiV4LDxUxwtUhUtxLn5sZ79gyIkj0uBy4lW0WvSN18Ur5rcTQyZ7reyGkjyAOotBc5UzP1nUYltB8mwHcV6KRorHn6f0C0z1q_B8E"
+              />
+              <div
+                class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent"
+              >
+                <span
+                  class="px-2 py-0.5 rounded bg-primary/20 text-primary font-label-sm text-[10px] uppercase"
+                  >Abstract</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Section: Yesterday -->
+      <section>
+        <h3
+          class="font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant/60 mb-4 px-1"
+        >
+          Yesterday
+        </h3>
+        <div class="masonry-grid">
+          <!-- Item 4 -->
+          <div
+            class="masonry-item relative group cursor-pointer"
+            onclick="handleItemClick(this)"
+          >
+            <div
+              class="absolute top-3 left-3 z-10 select-circle opacity-0 scale-90 transition-all duration-200"
+            >
+              <div
+                class="w-6 h-6 rounded-full border-2 border-secondary bg-black/40 flex items-center justify-center"
+              >
+                <span
+                  class="material-symbols-outlined text-secondary text-[18px] hidden check-icon"
+                  style="font-variation-settings: 'FILL' 1"
+                  >check_circle</span
+                >
+              </div>
+            </div>
+            <div
+              class="rounded-2xl overflow-hidden border border-white/10 bg-surface-container-low transition-transform duration-300 group-hover:scale-[1.02]"
+            >
+              <img
+                class="w-full h-auto"
+                data-alt="A moody cinematic street photography shot of a neon-drenched futuristic city in the rain, sharp reflections on wet pavement, deep blacks and vibrant electric blue lighting, atmospheric smoke and grit."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLqf1JvDJ3Ai-YbSUAtmQTSjraqBdgo6PzuxuEOwt4SgfsXkVBN0ONGKoXn0e-CxoBSFkwhYwtWLWfWTkhqyWtgcWPOTtmedArNmAjDaQtSuy0K6eaJYNDRy3k7xt6s2-VMJYcgS9fCWIfhPBMSBZD7QHG4OBoArRQ4lZXTi4PcBpQTJ1fQE0Crk1l0E_OPUYDiaZMoH_nvaKhsXNfcQmCXxXHLMF2UGxYmVTt-1EvCrGbG3-mxotmyqmAMsdtmWauHvyt80mO4Og"
+              />
+              <div
+                class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent"
+              >
+                <span
+                  class="px-2 py-0.5 rounded bg-secondary/20 text-secondary font-label-sm text-[10px] uppercase"
+                  >Cyberpunk</span
+                >
+              </div>
+            </div>
+          </div>
+          <!-- Item 5 -->
+          <div
+            class="masonry-item relative group cursor-pointer"
+            onclick="handleItemClick(this)"
+          >
+            <div
+              class="absolute top-3 left-3 z-10 select-circle opacity-0 scale-90 transition-all duration-200"
+            >
+              <div
+                class="w-6 h-6 rounded-full border-2 border-secondary bg-black/40 flex items-center justify-center"
+              >
+                <span
+                  class="material-symbols-outlined text-secondary text-[18px] hidden check-icon"
+                  style="font-variation-settings: 'FILL' 1"
+                  >check_circle</span
+                >
+              </div>
+            </div>
+            <div
+              class="rounded-2xl overflow-hidden border border-white/10 bg-surface-container-low transition-transform duration-300 group-hover:scale-[1.02]"
+            >
+              <img
+                class="w-full h-auto"
+                data-alt="A majestic digital painting of a phoenix rising from cosmic dust, feathers made of nebulae and stars, deep space background, brilliant oranges and purples, epic scale, masterful lighting."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJqKEY4bJuWYG60cz312gYQwpNdy7Fwi6-M6VsP7VcVBXq_do76OLsWPOAbznXllNm8a4k5AxPrHYuPZSf03BLcqn_oVL-A925ZCG4Qy6h15fNr2PmQaNMs5GMUMRh9s1g_8yOgPAwpt-3D4BN1NE7PeuHMb_A8sOoFfAszUApmQFKY5exrQ8Ijp3HYtZZEoTTtzq2KP8-floiYk7HPJ6OcYJeUsnaTiAQs-9gLJMKdDkuZ0vC7Q-CCq_oL5-9CRMp6QpXhPSrrrM"
+              />
+              <div
+                class="absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/80 to-transparent"
+              >
+                <span
+                  class="px-2 py-0.5 rounded bg-tertiary/20 text-tertiary font-label-sm text-[10px] uppercase"
+                  >Concept Art</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Selection Bar (Hidden by default) -->
+    <div
+      class="fixed bottom-28 left-1/2 -translate-x-1/2 w-[80%] glass rounded-2xl p-4 flex justify-between items-center z-[60] translate-y-32 transition-transform duration-300 shadow-2xl border border-white/10"
+      id="selection-bar"
+    >
+      <span class="font-label-md text-label-md text-on-surface ml-2"
+        ><span id="selected-count">0</span> selected</span
+      >
+      <div class="flex gap-2">
+        <button
+          class="p-2 rounded-full hover:bg-white/10 text-on-surface-variant"
+        >
+          <span class="material-symbols-outlined">share</span>
+        </button>
+        <button
+          class="p-2 rounded-full hover:bg-white/10 text-on-surface-variant"
+        >
+          <span class="material-symbols-outlined">download</span>
+        </button>
+        <button class="p-2 rounded-full hover:bg-error/10 text-error">
+          <span class="material-symbols-outlined">delete</span>
+        </button>
+      </div>
+    </div>
+    <!-- Bottom Navigation -->
+    <nav
+      class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] rounded-full z-50 bg-surface-container-low/70 backdrop-blur-2xl border border-white/10 shadow-[0_0_20px_rgba(76,215,246,0.15)] flex justify-around items-center py-2 px-4"
+    >
+      <div
+        class="flex items-center justify-center text-on-surface-variant w-12 h-12 hover:text-secondary transition-all active:scale-90 duration-150 cursor-pointer"
+      >
+        <span class="material-symbols-outlined">home</span>
+      </div>
+      <div
+        class="flex items-center justify-center text-on-surface-variant w-12 h-12 hover:text-secondary transition-all active:scale-90 duration-150 cursor-pointer"
+      >
+        <span class="material-symbols-outlined">auto_fix_high</span>
+      </div>
+      <div
+        class="flex items-center justify-center text-on-surface-variant w-12 h-12 hover:text-secondary transition-all active:scale-90 duration-150 cursor-pointer"
+      >
+        <span class="material-symbols-outlined">add_a_photo</span>
+      </div>
+      <!-- ACTIVE TAB: History -->
+      <div
+        class="flex items-center justify-center bg-secondary/20 text-secondary rounded-full w-12 h-12 shadow-[0_0_15px_rgba(76,215,246,0.3)] active:scale-90 transition-transform duration-150 cursor-pointer"
+      >
+        <span class="material-symbols-outlined">history</span>
+      </div>
+      <div
+        class="flex items-center justify-center text-on-surface-variant w-12 h-12 hover:text-secondary transition-all active:scale-90 duration-150 cursor-pointer"
+      >
+        <span class="material-symbols-outlined">person</span>
+      </div>
+    </nav>
+    <script>
+      let selectionMode = false;
+      let selectedItems = new Set();
+
+      function toggleSelectionMode() {
+        selectionMode = !selectionMode;
+        const body = document.body;
+        const btn = document.getElementById('select-btn');
+        const bar = document.getElementById('selection-bar');
+
+        if (selectionMode) {
+          body.classList.add('selection-active');
+          btn.innerText = 'Cancel';
+          btn.classList.add('bg-white/10');
+        } else {
+          body.classList.remove('selection-active');
+          btn.innerText = 'Select';
+          btn.classList.remove('bg-white/10');
+          clearSelection();
+        }
+        updateBar();
+      }
+
+      function handleItemClick(element) {
+        if (!selectionMode) return;
+
+        const checkIcon = element.querySelector('.check-icon');
+        const circle =
+          element.querySelector('.select-circle').firstElementChild;
+
+        if (selectedItems.has(element)) {
+          selectedItems.delete(element);
+          checkIcon.classList.add('hidden');
+          circle.classList.remove('bg-secondary');
+          circle.classList.add('bg-black/40');
+        } else {
+          selectedItems.add(element);
+          checkIcon.classList.remove('hidden');
+          circle.classList.add('bg-secondary');
+          circle.classList.remove('bg-black/40');
+        }
+        updateBar();
+      }
+
+      function updateBar() {
+        const bar = document.getElementById('selection-bar');
+        const countLabel = document.getElementById('selected-count');
+        countLabel.innerText = selectedItems.size;
+
+        if (selectionMode && selectedItems.size > 0) {
+          bar.classList.remove('translate-y-32');
+        } else {
+          bar.classList.add('translate-y-32');
+        }
+      }
+
+      function clearSelection() {
+        selectedItems.forEach((el) => {
+          const checkIcon = el.querySelector('.check-icon');
+          const circle = el.querySelector('.select-circle').firstElementChild;
+          checkIcon.classList.add('hidden');
+          circle.classList.remove('bg-secondary');
+          circle.classList.add('bg-black/40');
+        });
+        selectedItems.clear();
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,575 @@
+<!doctype html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>PixelMind AI - Tools</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Hanken+Grotesk:wght@700;800&amp;family=Geist:wght@500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #000000;
+        color: #e5e2e1;
+        -webkit-font-smoothing: antialiased;
+      }
+      .glass-card {
+        background: rgba(20, 20, 20, 0.7);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .glass-card:hover {
+        border-color: rgba(76, 215, 246, 0.4);
+        transform: translateY(-4px);
+        box-shadow: 0 10px 30px -10px rgba(76, 215, 246, 0.2);
+      }
+      .premium-gradient {
+        background: linear-gradient(
+          135deg,
+          #ddb7ff 0%,
+          #b76dff 50%,
+          #ffd8e7 100%
+        );
+      }
+      .shimmer {
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.1),
+          transparent
+        );
+        background-size: 200% 100%;
+        animation: shimmer 3s infinite;
+      }
+      @keyframes shimmer {
+        0% {
+          background-position: -200% 0;
+        }
+        100% {
+          background-position: 200% 0;
+        }
+      }
+      .neon-glow-cyan {
+        box-shadow: 0 0 15px rgba(76, 215, 246, 0.3);
+      }
+      .material-symbols-outlined {
+        font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24;
+      }
+    </style>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'on-tertiary-container': '#560038',
+              'on-secondary-container': '#00424e',
+              'surface-container-high': '#2a2a2a',
+              'surface-container': '#201f1f',
+              'on-surface': '#e5e2e1',
+              secondary: '#4cd7f6',
+              'on-error-container': '#ffdad6',
+              'surface-dim': '#131313',
+              'surface-container-highest': '#353534',
+              'on-tertiary-fixed-variant': '#85145a',
+              'on-primary-fixed': '#2c0051',
+              'secondary-fixed': '#acedff',
+              'surface-bright': '#3a3939',
+              'on-secondary': '#003640',
+              background: '#131313',
+              outline: '#988d9f',
+              'on-primary': '#490080',
+              'on-secondary-fixed-variant': '#004e5c',
+              'surface-container-low': '#1c1b1b',
+              'on-secondary-fixed': '#001f26',
+              error: '#ffb4ab',
+              'on-primary-fixed-variant': '#6900b3',
+              'surface-tint': '#ddb7ff',
+              'primary-container': '#b76dff',
+              'on-primary-container': '#400071',
+              'tertiary-container': '#e364a7',
+              'tertiary-fixed-dim': '#ffafd3',
+              'inverse-primary': '#842bd2',
+              'inverse-surface': '#e5e2e1',
+              'on-error': '#690005',
+              'secondary-fixed-dim': '#4cd7f6',
+              'surface-container-lowest': '#0e0e0e',
+              'on-tertiary-fixed': '#3d0026',
+              surface: '#131313',
+              'primary-fixed': '#f0dbff',
+              'on-background': '#e5e2e1',
+              tertiary: '#ffafd3',
+              'secondary-container': '#03b5d3',
+              'on-tertiary': '#620040',
+              'outline-variant': '#4d4354',
+              'primary-fixed-dim': '#ddb7ff',
+              'inverse-on-surface': '#313030',
+              'tertiary-fixed': '#ffd8e7',
+              'surface-variant': '#353534',
+              primary: '#ddb7ff',
+              'on-surface-variant': '#cfc2d6',
+              'error-container': '#93000a',
+            },
+            borderRadius: {
+              DEFAULT: '0.25rem',
+              lg: '0.5rem',
+              xl: '0.75rem',
+              full: '9999px',
+            },
+            spacing: {
+              'container-margin-desktop': '40px',
+              'section-gap': '80px',
+              'container-margin-mobile': '20px',
+              'stack-unit': '8px',
+              gutter: '24px',
+            },
+            fontFamily: {
+              'headline-lg-mobile': ['Hanken Grotesk'],
+              'label-sm': ['Geist'],
+              'body-md': ['Inter'],
+              'body-lg': ['Inter'],
+              'headline-xl': ['Hanken Grotesk'],
+              'headline-lg': ['Hanken Grotesk'],
+              'label-md': ['Geist'],
+            },
+            fontSize: {
+              'headline-lg-mobile': [
+                '28px',
+                { lineHeight: '34px', fontWeight: '700' },
+              ],
+              'label-sm': ['12px', { lineHeight: '16px', fontWeight: '600' }],
+              'body-md': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+              'body-lg': ['18px', { lineHeight: '28px', fontWeight: '400' }],
+              'headline-xl': [
+                '48px',
+                {
+                  lineHeight: '56px',
+                  letterSpacing: '-0.02em',
+                  fontWeight: '800',
+                },
+              ],
+              'headline-lg': [
+                '32px',
+                {
+                  lineHeight: '40px',
+                  letterSpacing: '-0.01em',
+                  fontWeight: '700',
+                },
+              ],
+              'label-md': [
+                '14px',
+                {
+                  lineHeight: '20px',
+                  letterSpacing: '0.02em',
+                  fontWeight: '500',
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+  </head>
+  <body
+    class="bg-background selection:bg-secondary/30 selection:text-secondary"
+  >
+    <!-- Top Navigation -->
+    <header
+      class="fixed top-0 w-full z-50 bg-surface-container/70 backdrop-blur-xl border-b border-white/10 flex justify-between items-center px-container-margin-mobile h-16"
+    >
+      <div class="flex items-center gap-4">
+        <button
+          class="p-2 rounded-full hover:bg-white/10 active:scale-95 transition-all"
+        >
+          <span class="material-symbols-outlined text-on-surface"
+            >arrow_back</span
+          >
+        </button>
+        <h1
+          class="font-headline-lg-mobile text-headline-lg-mobile font-bold tracking-tighter text-primary"
+        >
+          AI Tools
+        </h1>
+      </div>
+      <div class="flex items-center gap-2">
+        <div class="hidden md:flex relative group">
+          <span
+            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant"
+            >search</span
+          >
+          <input
+            class="bg-surface-container-highest border-none rounded-full pl-10 pr-4 py-2 text-label-md focus:ring-2 focus:ring-secondary w-64 transition-all"
+            placeholder="Search tools..."
+            type="text"
+          />
+        </div>
+        <button class="p-2 md:hidden rounded-full hover:bg-white/10">
+          <span class="material-symbols-outlined text-on-surface">search</span>
+        </button>
+        <div
+          class="w-10 h-10 rounded-full border-2 border-primary/20 overflow-hidden bg-surface-container-high"
+          data-alt="A professional user profile avatar in a high-tech digital studio setting. The lighting is moody with purple and cyan rim lights, reflecting a premium AI artist's personal brand. The background is softly blurred, emphasizing the clean and sophisticated aesthetic of PixelMind AI."
+          style="
+            background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAMMZ9ZknsF15-q2cNlUVYNCkvcbGnQLkFHwsP5ArwvwVhS56uNZoMm_piBwiVxIpzeSAdPGF-x97Bep16wcMsnAE36V5ctjJjxPGPgAX1rn75fsRhteHyrMrs2M32FYelEaIAlUMHavVqB7-7LzzV5N6i1P7-HVs26eZIF20QvU-SSajLOwk817I0NLzlwoOprx8GO8PzU8hVnD_5bB_jt6pzENVFkpV5rchJfMfobJJPIAq5Q-5JB5dHCgzzR4VcCXf_2sAoB1A8');
+          "
+        ></div>
+      </div>
+    </header>
+    <main
+      class="pt-24 pb-32 px-container-margin-mobile md:px-container-margin-desktop max-w-7xl mx-auto"
+    >
+      <!-- Premium Featured Card -->
+      <section class="mb-10">
+        <div
+          class="relative overflow-hidden rounded-3xl p-8 premium-gradient group cursor-pointer"
+        >
+          <div class="absolute inset-0 shimmer opacity-30"></div>
+          <div
+            class="relative z-10 flex flex-col md:flex-row justify-between items-center gap-6"
+          >
+            <div class="space-y-2">
+              <span
+                class="bg-on-primary-container text-white text-[10px] uppercase font-bold tracking-widest px-3 py-1 rounded-full"
+                >Unlock Everything</span
+              >
+              <h2
+                class="font-headline-xl text-headline-xl text-on-primary-container leading-none"
+              >
+                PixelMind Pro
+              </h2>
+              <p
+                class="font-body-lg text-body-lg text-on-primary-container/80 max-w-md"
+              >
+                Unlimited high-res exports, batch processing, and exclusive
+                early access to GPT-5 powered editing models.
+              </p>
+              <button
+                class="mt-4 px-8 py-3 bg-on-primary-container text-white rounded-full font-label-md hover:scale-105 transition-transform active:scale-95 shadow-xl"
+              >
+                Upgrade Now
+              </button>
+            </div>
+            <div
+              class="hidden md:block w-72 h-48 rounded-2xl overflow-hidden shadow-2xl rotate-3 group-hover:rotate-0 transition-transform duration-500"
+            >
+              <div
+                class="w-full h-full bg-cover bg-center"
+                data-alt="A stunning digital art masterpiece showing a futuristic cityscape at dusk, edited with advanced AI. The colors are vibrant with neon purples, glowing cyan highlights, and deep obsidian shadows. The image showcases high-frequency detail and professional-grade retouching, perfectly illustrating the power of the Premium toolset."
+                style="
+                  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBV1wCGp4ImSc4RuYdYa8CkISj_YT6360AtsztupGkn8mkYiYqbOttGub5qmWgvboleH0mJRVlZFc5bvu4n5U-elsUJaZ6X8-or3p5o84RTdQlLXGsAqJmx3rnFJre0QWxSy64ziauMLjUVobgwDRKdYfzMDeOnwGqIQxOVU6DVbf-Wr96dgn0P4-yXjUZbW2DPt1pNV-WbRb8XVZG8NlE75Db8penMOnOc_lpyBKl_UEWOBvNcxEeQF-vBKOLFAamKRHGGFoAZ9Ck');
+                "
+              ></div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Tools Grid -->
+      <section
+        class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter"
+      >
+        <!-- Tool: Enhance -->
+        <div
+          class="glass-card rounded-3xl p-6 flex flex-col items-center text-center cursor-pointer group"
+        >
+          <div
+            class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors"
+          >
+            <span
+              class="material-symbols-outlined text-primary text-3xl"
+              style="font-variation-settings: 'FILL' 1"
+              >auto_fix_high</span
+            >
+          </div>
+          <h3 class="font-label-md text-label-md text-on-surface mb-1">
+            Enhance
+          </h3>
+          <p
+            class="font-label-sm text-[11px] text-on-surface-variant leading-tight"
+          >
+            One-tap magic quality boost
+          </p>
+        </div>
+        <!-- Tool: Object Removal -->
+        <div
+          class="glass-card rounded-3xl p-6 flex flex-col items-center text-center cursor-pointer group"
+        >
+          <div
+            class="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center mb-4 group-hover:bg-secondary/20 transition-colors"
+          >
+            <span class="material-symbols-outlined text-secondary text-3xl"
+              >auto_fix_normal</span
+            >
+          </div>
+          <h3 class="font-label-md text-label-md text-on-surface mb-1">
+            Object Removal
+          </h3>
+          <p
+            class="font-label-sm text-[11px] text-on-surface-variant leading-tight"
+          >
+            Clean unwanted elements
+          </p>
+        </div>
+        <!-- Tool: Face Restore -->
+        <div
+          class="glass-card rounded-3xl p-6 flex flex-col items-center text-center cursor-pointer group"
+        >
+          <div
+            class="w-14 h-14 rounded-2xl bg-tertiary/10 flex items-center justify-center mb-4 group-hover:bg-tertiary/20 transition-colors"
+          >
+            <span class="material-symbols-outlined text-tertiary text-3xl"
+              >face</span
+            >
+          </div>
+          <h3 class="font-label-md text-label-md text-on-surface mb-1">
+            Face Restore
+          </h3>
+          <p
+            class="font-label-sm text-[11px] text-on-surface-variant leading-tight"
+          >
+            Revive blurry memories
+          </p>
+        </div>
+        <!-- Tool: AI Avatar -->
+        <div
+          class="glass-card rounded-3xl p-6 flex flex-col items-center text-center cursor-pointer group"
+        >
+          <div
+            class="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors"
+          >
+            <span class="material-symbols-outlined text-primary text-3xl"
+              >account_circle</span
+            >
+          </div>
+          <h3 class="font-label-md text-label-md text-on-surface mb-1">
+            AI Avatar
+          </h3>
+          <p
+            class="font-label-sm text-[11px] text-on-surface-variant leading-tight"
+          >
+            Generate custom personas
+          </p>
+        </div>
+        <!-- Tool: AI Expand -->
+        <div
+          class="glass-card rounded-3xl p-6 flex flex-col items-center text-center cursor-pointer group"
+        >
+          <div
+            class="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center mb-4 group-hover:bg-secondary/20 transition-colors"
+          >
+            <span class="material-symbols-outlined text-secondary text-3xl"
+              >aspect_ratio</span
+            >
+          </div>
+          <h3 class="font-label-md text-label-md text-on-surface mb-1">
+            AI Expand
+          </h3>
+          <p
+            class="font-label-sm text-[11px] text-on-surface-variant leading-tight"
+          >
+            Generative outpainting
+          </p>
+        </div>
+        <!-- Tool: AI Replace -->
+        <div
+          class="glass-card rounded-3xl p-6 flex flex-col items-center text-center cursor-pointer group"
+        >
+          <div
+            class="w-14 h-14 rounded-2xl bg-tertiary/10 flex items-center justify-center mb-4 group-hover:bg-tertiary/20 transition-colors"
+          >
+            <span class="material-symbols-outlined text-tertiary text-3xl"
+              >swap_horiz</span
+            >
+          </div>
+          <h3 class="font-label-md text-label-md text-on-surface mb-1">
+            AI Replace
+          </h3>
+          <p
+            class="font-label-sm text-[11px] text-on-surface-variant leading-tight"
+          >
+            Swap any scene element
+          </p>
+        </div>
+        <!-- Tool: AI Eraser -->
+        <div
+          class="glass-card rounded-3xl p-6 flex flex-col items-center text-center cursor-pointer group"
+        >
+          <div
+            class="w-14 h-14 rounded-2xl bg-error/10 flex items-center justify-center mb-4 group-hover:bg-error/20 transition-colors"
+          >
+            <span class="material-symbols-outlined text-error text-3xl"
+              >ink_eraser</span
+            >
+          </div>
+          <h3 class="font-label-md text-label-md text-on-surface mb-1">
+            AI Eraser
+          </h3>
+          <p
+            class="font-label-sm text-[11px] text-on-surface-variant leading-tight"
+          >
+            Precise pixel cleanup
+          </p>
+        </div>
+        <!-- Tool: AI Upscale -->
+        <div
+          class="glass-card rounded-3xl p-6 flex flex-col items-center text-center cursor-pointer group"
+        >
+          <div
+            class="w-14 h-14 rounded-2xl bg-secondary/10 flex items-center justify-center mb-4 group-hover:bg-secondary/20 transition-colors"
+          >
+            <span class="material-symbols-outlined text-secondary text-3xl"
+              >high_quality</span
+            >
+          </div>
+          <h3 class="font-label-md text-label-md text-on-surface mb-1">
+            AI Upscale
+          </h3>
+          <p
+            class="font-label-sm text-[11px] text-on-surface-variant leading-tight"
+          >
+            Enhance to 4K resolution
+          </p>
+        </div>
+      </section>
+      <!-- Recent Projects Hint -->
+      <div class="mt-12 flex justify-between items-center mb-6">
+        <h2
+          class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface"
+        >
+          Recent Creations
+        </h2>
+        <button class="text-secondary font-label-md hover:underline">
+          View All
+        </button>
+      </div>
+      <div class="grid grid-cols-3 md:grid-cols-6 gap-4">
+        <div
+          class="aspect-square rounded-2xl overflow-hidden bg-surface-container-high ring-1 ring-white/10 hover:ring-secondary/50 transition-all cursor-pointer"
+          data-alt="A portrait of a woman with glowing neon strands of hair in shades of teal and violet. The background is a minimalist black with subtle bokeh light effects. The image is crisp, showing the incredible detail captured by the PixelMind AI enhancement tool."
+          style="
+            background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCUkaSZzIp2F_BNJIbtoBEa0K8TfR4o5vcwP-GqJEb7mRK7HoADik0Oc6A55lTJ29z39tIROtCoBq3AN3ZyRQVk5IrZL6kcBWhPpxDF0cvyTWSgrGqFNf9fES5vavXotyXAwPnY-SbRJBkz60J3cJ-QxJWGit8fMg60_-vZFg07zGre-1HgtrZ5OKmCKUYEheCunfOoWkmGw9ONm0u3TQnSgVhHIIlGTWFH8kMePT36QE8WFV5iXYSH5LgwNjn-MmoFCkK1oyHVDJM');
+          "
+        ></div>
+        <div
+          class="aspect-square rounded-2xl overflow-hidden bg-surface-container-high ring-1 ring-white/10 hover:ring-secondary/50 transition-all cursor-pointer"
+          data-alt="An abstract landscape of crystalline mountains under a dual-sun sky. Deep indigo and bright magenta hues create a surreal atmosphere. The composition is wide and cinematic, demonstrating the AI Expand tool's capability to generate expansive vistas."
+          style="
+            background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBX7YzjrCoI4gr7231yS9MTGRKNlr4TOvCmdlFkJWNmKnKivDn_UBqBDRIizNeN1wXAB_tAk9dnI9TWD33abXgwrg66DxfpTCLCFlqwwQy4vt1bGT27qk9GQIrAoH_tq-2cuE28dy6iFhA_qLm_ySAkBikfO4ziXFYuM-vJulggdY7tiFJwvtbG1AqGZTIydXpwCSCxBlVXKbvWXnChxlw2gIlwePJDNUmSBsAdcnQH9HCztK9XbAEcFy3NMrw_69jUH6ve0n_krJ8');
+          "
+        ></div>
+        <div
+          class="aspect-square rounded-2xl overflow-hidden bg-surface-container-high ring-1 ring-white/10 hover:ring-secondary/50 transition-all cursor-pointer"
+          data-alt="Macro photography of a futuristic mechanical iris. The detail is extreme, showing carbon fiber textures and internal clockwork mechanisms glowing with soft blue light. The lighting is moody and focused, showcasing the AI Upscale tool's precision."
+          style="
+            background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB5hCY9Azwhr6Ir5adUufe5FEo-5-5YfkAkAGlRZQ-jrlrIGlcHUkogtrxk2w7z4bZMjhtB1m0iUh_6jXpK7q0gw46YiqfdwfRNMHZ6IRbI43ppR_aqBVcvK5e5FWLdDo_0p-9vcDdiPRwuf3ZPv9Q5Ri16IJ_fDxRCCTI9ewMUnrVO4W64RiuHKssIVGEwFI_9ZV5iJql2VyvXEx6pHYk_jemccWzdTHZ-a1sgiMoRxVfM2Q0BP4L5_ohSRyn9GhCL6HnmsqBihWM');
+          "
+        ></div>
+        <div
+          class="aspect-square rounded-2xl overflow-hidden bg-surface-container-high ring-1 ring-white/10 hover:ring-secondary/50 transition-all cursor-pointer"
+          data-alt="A high-fashion editorial photo of a model wearing a suit made of flowing liquid chrome. The reflections are complex, mirroring a cyberpunk city environment. The overall aesthetic is clean, luxury, and technologically advanced."
+          style="
+            background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBi6hL-gBBgQItGKWrXvizAakOPO8wSKussTCuZnivaE0XVq_Id0j-iFL45mPHPwCMhTneLD-3r_AKhIJZxMeqIaXMwtWBG2WnsBrJsTVra4nR2VAuKz49U0K3FXgF4gMQgc_ZXGeEtpQieCLs7-X2XzOr12ZL6lgTi3it0MT5M8aane3f0zQMrSXA9KfNItjzOMvvHFj3S2Jqze6woA5Ztpoa_ndyrrTznqO-D8Irar9Rx_0N6po7nQGDSrdjR4SZ-2belIPsWdPA');
+          "
+        ></div>
+        <div
+          class="aspect-square rounded-2xl overflow-hidden bg-surface-container-high ring-1 ring-white/10 hover:ring-secondary/50 transition-all cursor-pointer"
+          data-alt="A stylized character design of a digital deity, featuring floating geometric armor and eyes that emit a soft white radiance. The background is a dark void filled with tiny, sharp stars, creating a sense of cosmic scale."
+          style="
+            background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC5zP77zYTKYOivOK8rTE3nyiqvf6NE4psS2OxGG_L9GISteWYqWQKEzEm3gE8h3DJueWV1P3VLfGe38q-V9Q_1N1bs2oRAjAVnMqD8EL4xgayoewadOT5JK39xRk4kU4Rn6aAyP0mS9OE6UoJN2PfA2JbPpSVVkcvALyhCMILl1wWhzyS8ZaWz2upVFiCMGlk4yExUffQ2deIuB3LP3dTqFmexfn5KviFlElM8iB_h45jY31Axyt8VWk464YkjyPw08d9R_2zZDb0');
+          "
+        ></div>
+        <div
+          class="aspect-square rounded-2xl overflow-hidden bg-surface-container-high ring-1 ring-white/10 hover:ring-secondary/50 transition-all cursor-pointer"
+          data-alt="A hyper-realistic close-up of a cybernetic eye with a complex digital display reflected in the pupil. The surrounding skin texture is perfectly sharp, highlighting the professional retouching and restoration capabilities of the toolset."
+          style="
+            background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDdZHCj3oDFrS20jL46b3jGsjoG1toSakKCbN0ILtFhMx5NPl79C3Hg6tLA2bjR205f_hRTfss1b1fNHTUBI3b0XU6LxrO1jajPVJp75F-oSawsvzBq1ILP1ZO4uG23hFwgChukE32NZbYq80SDQzPjMlRdk_wL8oQWFxbyLt_PWNlYChmQw5cEOWZRoeLEShKZrjbKOXWsLenX7OiKEJfyYrEh2Dq-sOutJDzOQg3AWXa9HDYF4286IwqaN0qC5OGfUXOogjsAQFY');
+          "
+        ></div>
+      </div>
+    </main>
+    <!-- Bottom Navigation Bar -->
+    <nav
+      class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] md:w-[400px] rounded-full z-50 bg-surface-container-low/70 backdrop-blur-2xl border border-white/10 shadow-[0_0_20px_rgba(76,215,246,0.15)] flex justify-around items-center py-2 px-4"
+    >
+      <a
+        class="flex items-center justify-center text-on-surface-variant w-12 h-12 hover:text-secondary transition-all active:scale-90 duration-150"
+        href="#"
+      >
+        <span class="material-symbols-outlined">home</span>
+      </a>
+      <a
+        class="flex items-center justify-center bg-secondary/20 text-secondary rounded-full w-12 h-12 shadow-[0_0_15px_rgba(76,215,246,0.3)] active:scale-90 transition-transform duration-150"
+        href="#"
+      >
+        <span
+          class="material-symbols-outlined"
+          style="font-variation-settings: 'FILL' 1"
+          >auto_fix_high</span
+        >
+      </a>
+      <a
+        class="flex items-center justify-center text-on-surface-variant w-12 h-12 hover:text-secondary transition-all active:scale-90 duration-150"
+        href="#"
+      >
+        <span class="material-symbols-outlined">add_a_photo</span>
+      </a>
+      <a
+        class="flex items-center justify-center text-on-surface-variant w-12 h-12 hover:text-secondary transition-all active:scale-90 duration-150"
+        href="#"
+      >
+        <span class="material-symbols-outlined">history</span>
+      </a>
+      <a
+        class="flex items-center justify-center text-on-surface-variant w-12 h-12 hover:text-secondary transition-all active:scale-90 duration-150"
+        href="#"
+      >
+        <span class="material-symbols-outlined">person</span>
+      </a>
+    </nav>
+    <script>
+      // Micro-interaction for tool cards
+      document.querySelectorAll('.glass-card').forEach((card) => {
+        card.addEventListener('mousedown', () => {
+          card.style.transform = 'scale(0.96) translateY(2px)';
+        });
+        card.addEventListener('mouseup', () => {
+          card.style.transform = 'scale(1.02) translateY(-4px)';
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'translateY(0)';
+        });
+      });
+
+      // Search bar focus effect
+      const searchInput = document.querySelector('input[type="text"]');
+      if (searchInput) {
+        searchInput.addEventListener('focus', () => {
+          searchInput.parentElement.classList.add('neon-glow-cyan');
+        });
+        searchInput.addEventListener('blur', () => {
+          searchInput.parentElement.classList.remove('neon-glow-cyan');
+        });
+      }
+    </script>
+  </body>
+</html>

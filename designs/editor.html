@@ -1,0 +1,388 @@
+<!doctype html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>LUMINA AI - Photo Editor</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Hanken+Grotesk:wght@700;800&amp;family=Geist:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'on-tertiary-container': '#560038',
+              'on-secondary-container': '#00424e',
+              'surface-container-high': '#2a2a2a',
+              'surface-container': '#201f1f',
+              'on-surface': '#e5e2e1',
+              secondary: '#4cd7f6',
+              'on-error-container': '#ffdad6',
+              'surface-dim': '#131313',
+              'surface-container-highest': '#353534',
+              'on-tertiary-fixed-variant': '#85145a',
+              'on-primary-fixed': '#2c0051',
+              'secondary-fixed': '#acedff',
+              'surface-bright': '#3a3939',
+              'on-secondary': '#003640',
+              background: '#131313',
+              outline: '#988d9f',
+              'on-primary': '#490080',
+              'on-secondary-fixed-variant': '#004e5c',
+              'surface-container-low': '#1c1b1b',
+              'on-secondary-fixed': '#001f26',
+              error: '#ffb4ab',
+              'on-primary-fixed-variant': '#6900b3',
+              'surface-tint': '#ddb7ff',
+              'primary-container': '#b76dff',
+              'on-primary-container': '#400071',
+              'tertiary-container': '#e364a7',
+              'tertiary-fixed-dim': '#ffafd3',
+              'inverse-primary': '#842bd2',
+              'inverse-surface': '#e5e2e1',
+              'on-error': '#690005',
+              'secondary-fixed-dim': '#4cd7f6',
+              'surface-container-lowest': '#0e0e0e',
+              'on-tertiary-fixed': '#3d0026',
+              surface: '#131313',
+              'primary-fixed': '#f0dbff',
+              'on-background': '#e5e2e1',
+              tertiary: '#ffafd3',
+              'secondary-container': '#03b5d3',
+              'on-tertiary': '#620040',
+              'outline-variant': '#4d4354',
+              'primary-fixed-dim': '#ddb7ff',
+              'inverse-on-surface': '#313030',
+              'tertiary-fixed': '#ffd8e7',
+              'surface-variant': '#353534',
+              primary: '#ddb7ff',
+              'on-surface-variant': '#cfc2d6',
+              'error-container': '#93000a',
+            },
+            borderRadius: {
+              DEFAULT: '0.25rem',
+              lg: '0.5rem',
+              xl: '0.75rem',
+              full: '9999px',
+            },
+            spacing: {
+              'container-margin-desktop': '40px',
+              'section-gap': '80px',
+              'container-margin-mobile': '20px',
+              'stack-unit': '8px',
+              gutter: '24px',
+            },
+            fontFamily: {
+              'headline-lg-mobile': ['Hanken Grotesk'],
+              'label-sm': ['Geist'],
+              'body-md': ['Inter'],
+              'body-lg': ['Inter'],
+              'headline-xl': ['Hanken Grotesk'],
+              'headline-lg': ['Hanken Grotesk'],
+              'label-md': ['Geist'],
+            },
+            fontSize: {
+              'headline-lg-mobile': [
+                '28px',
+                { lineHeight: '34px', fontWeight: '700' },
+              ],
+              'label-sm': ['12px', { lineHeight: '16px', fontWeight: '600' }],
+              'body-md': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+              'body-lg': ['18px', { lineHeight: '28px', fontWeight: '400' }],
+              'headline-xl': [
+                '48px',
+                {
+                  lineHeight: '56px',
+                  letterSpacing: '-0.02em',
+                  fontWeight: '800',
+                },
+              ],
+              'headline-lg': [
+                '32px',
+                {
+                  lineHeight: '40px',
+                  letterSpacing: '-0.01em',
+                  fontWeight: '700',
+                },
+              ],
+              'label-md': [
+                '14px',
+                {
+                  lineHeight: '20px',
+                  letterSpacing: '0.02em',
+                  fontWeight: '500',
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        background-color: #000000;
+        color: #e5e2e1;
+        overflow: hidden;
+        font-family: 'Inter', sans-serif;
+      }
+      .glass-panel {
+        background: rgba(20, 20, 20, 0.7);
+        backdrop-filter: blur(40px);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .neon-glow-primary {
+        box-shadow: 0 0 20px rgba(183, 109, 255, 0.3);
+      }
+      .neon-glow-cyan {
+        box-shadow: 0 0 20px rgba(76, 215, 246, 0.2);
+      }
+      .tool-strip::-webkit-scrollbar {
+        display: none;
+      }
+      .tool-strip {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .material-symbols-outlined {
+        font-variation-settings:
+          'FILL' 0,
+          'wght' 300,
+          'GRAD' 0,
+          'opsz' 24;
+      }
+      .active-tool {
+        background: rgba(76, 215, 246, 0.15);
+        color: #4cd7f6;
+      }
+    </style>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+  </head>
+  <body class="flex flex-col h-screen">
+    <!-- Header Section -->
+    <header
+      class="fixed top-0 w-full z-50 bg-surface-container/70 backdrop-blur-xl border-b border-white/10 flex justify-between items-center px-container-margin-mobile h-16"
+    >
+      <div class="flex items-center gap-4">
+        <button
+          class="w-10 h-10 flex items-center justify-center hover:bg-white/5 rounded-full transition-colors active:scale-95"
+        >
+          <span
+            class="material-symbols-outlined text-on-surface"
+            data-icon="arrow_back"
+            >arrow_back</span
+          >
+        </button>
+        <div class="h-6 w-px bg-white/10 mx-2"></div>
+        <button
+          class="w-10 h-10 flex items-center justify-center hover:bg-white/5 rounded-full transition-colors active:scale-95 opacity-50"
+        >
+          <span
+            class="material-symbols-outlined text-on-surface"
+            data-icon="undo"
+            >undo</span
+          >
+        </button>
+        <button
+          class="w-10 h-10 flex items-center justify-center hover:bg-white/5 rounded-full transition-colors active:scale-95 opacity-50"
+        >
+          <span
+            class="material-symbols-outlined text-on-surface"
+            data-icon="redo"
+            >redo</span
+          >
+        </button>
+      </div>
+      <div class="hidden md:block">
+        <span
+          class="font-headline-lg-mobile text-headline-lg-mobile font-bold tracking-tighter text-primary"
+          >LUMINA AI</span
+        >
+      </div>
+      <button
+        class="bg-primary hover:bg-primary-container text-on-primary-container font-label-md text-label-md px-6 py-2 rounded-full transition-all active:scale-95 neon-glow-primary"
+      >
+        Save
+      </button>
+    </header>
+    <!-- Main Viewport -->
+    <main
+      class="flex-grow relative flex items-center justify-center bg-black overflow-hidden pt-16 pb-32"
+    >
+      <!-- Atmospheric Ambient Background Shader (Placeholder) -->
+
+      <!-- Photo Container -->
+      <div
+        class="relative w-full h-full max-w-5xl max-h-[707px] flex items-center justify-center p-4"
+      >
+        <div class="relative shadow-2xl rounded-lg overflow-hidden group">
+          <img
+            class="max-h-full max-w-full object-contain shadow-[0_0_80px_rgba(0,0,0,0.5)]"
+            data-alt="A high-fashion portrait of a model with dramatic lighting, set against a dark, minimalist architectural background. The lighting is cold and precise with cyan rim lights and deep purple shadows, creating a futuristic and cinematic mood. The image is crisp, detailed, and professional, embodying a high-end digital photography studio aesthetic with deep AMOLED blacks."
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgtiZcqRNXGQ9Pbx_v14NjQorFKtywLT1aleAg__D12iqfCL1t5gTzf6wKaTIlB4dWJ7-R00jWsVeNf7y1oQlbgR1OkTz2IlXPvfs1TB6m4TQzbLtQzscP69lcsTCxbposkh9vwRcveLDy1jOIXQKmLwgVZOzjokvH_C4nVhTNokAiMoqKZmxnSBDG8QNfxXIeF_GHiN1ITUD_to_LV5xZ_ZTy1oBm748Lq6HAPM5GPz8p4_tEMMYqBNPLC5RDzbvgcsjMNRXhRE8"
+          />
+          <!-- AI Processing Overlay (Skeleton/Pulse Effect) -->
+          <div
+            class="absolute inset-0 bg-primary/10 backdrop-blur-[2px] hidden items-center justify-center"
+            id="processing-overlay"
+          >
+            <div
+              class="w-24 h-24 rounded-full border-4 border-t-secondary border-r-primary border-b-transparent border-l-transparent animate-spin"
+            ></div>
+          </div>
+        </div>
+        <!-- Floating Zoom Controls -->
+        <div
+          class="absolute right-8 top-1/2 -translate-y-1/2 flex flex-col gap-2 z-20"
+        >
+          <div
+            class="glass-panel flex flex-col p-1.5 rounded-2xl border border-white/10 shadow-xl"
+          >
+            <button
+              class="w-12 h-12 flex items-center justify-center rounded-xl hover:bg-white/10 text-on-surface transition-all active:scale-90"
+            >
+              <span class="material-symbols-outlined" data-icon="add">add</span>
+            </button>
+            <div class="h-px bg-white/10 w-8 mx-auto my-1"></div>
+            <button
+              class="w-12 h-12 flex items-center justify-center rounded-xl hover:bg-white/10 text-on-surface transition-all active:scale-90"
+            >
+              <span class="material-symbols-outlined" data-icon="remove"
+                >remove</span
+              >
+            </button>
+          </div>
+          <button
+            class="glass-panel w-12 h-12 flex items-center justify-center rounded-full border border-white/10 text-on-surface hover:bg-white/10 transition-all active:scale-90"
+          >
+            <span class="material-symbols-outlined" data-icon="aspect_ratio"
+              >aspect_ratio</span
+            >
+          </button>
+        </div>
+      </div>
+    </main>
+    <!-- Bottom UI Controls -->
+    <div class="fixed bottom-0 w-full z-40 pb-6 flex flex-col items-center">
+      <!-- Floating Generate Button -->
+      <div class="mb-6 relative group">
+        <div
+          class="absolute inset-0 bg-primary/40 blur-2xl rounded-full scale-110 opacity-0 group-hover:opacity-100 transition-opacity"
+        ></div>
+        <button
+          class="relative bg-primary px-10 py-4 rounded-full flex items-center gap-3 text-on-primary-container font-headline-lg-mobile text-[18px] font-bold shadow-2xl transition-all hover:scale-105 active:scale-95 group"
+          onclick="simulateProcess()"
+        >
+          <span
+            class="material-symbols-outlined"
+            data-icon="auto_fix_high"
+            style="font-variation-settings: 'FILL' 1"
+            >auto_fix_high</span
+          >
+          <span>Generate</span>
+        </button>
+      </div>
+      <!-- Tool Strip -->
+      <div
+        class="w-[90%] md:w-auto max-w-2xl glass-panel px-6 py-4 rounded-[32px] border border-white/10 shadow-[0_-10px_40px_rgba(0,0,0,0.5)]"
+      >
+        <div class="tool-strip flex items-center gap-8 overflow-x-auto">
+          <button
+            class="flex flex-col items-center gap-1.5 shrink-0 min-w-[72px] transition-all active:scale-90 group active-tool p-2 rounded-2xl"
+          >
+            <span
+              class="material-symbols-outlined"
+              data-icon="temp_preferences_custom"
+              >temp_preferences_custom</span
+            >
+            <span class="font-label-sm text-label-sm">Enhance</span>
+          </button>
+          <button
+            class="flex flex-col items-center gap-1.5 shrink-0 min-w-[72px] transition-all active:scale-90 group text-on-surface-variant hover:text-secondary p-2 rounded-2xl"
+          >
+            <span class="material-symbols-outlined" data-icon="ink_eraser"
+              >ink_eraser</span
+            >
+            <span class="font-label-sm text-label-sm">Magic Eraser</span>
+          </button>
+          <button
+            class="flex flex-col items-center gap-1.5 shrink-0 min-w-[72px] transition-all active:scale-90 group text-on-surface-variant hover:text-secondary p-2 rounded-2xl"
+          >
+            <span class="material-symbols-outlined" data-icon="image"
+              >image</span
+            >
+            <span class="font-label-sm text-label-sm">Background</span>
+          </button>
+          <button
+            class="flex flex-col items-center gap-1.5 shrink-0 min-w-[72px] transition-all active:scale-90 group text-on-surface-variant hover:text-secondary p-2 rounded-2xl"
+          >
+            <span class="material-symbols-outlined" data-icon="lightbulb"
+              >lightbulb</span
+            >
+            <span class="font-label-sm text-label-sm">Relight</span>
+          </button>
+          <button
+            class="flex flex-col items-center gap-1.5 shrink-0 min-w-[72px] transition-all active:scale-90 group text-on-surface-variant hover:text-secondary p-2 rounded-2xl"
+          >
+            <span class="material-symbols-outlined" data-icon="open_in_full"
+              >open_in_full</span
+            >
+            <span class="font-label-sm text-label-sm">Expand</span>
+          </button>
+          <button
+            class="flex flex-col items-center gap-1.5 shrink-0 min-w-[72px] transition-all active:scale-90 group text-on-surface-variant hover:text-secondary p-2 rounded-2xl"
+          >
+            <span
+              class="material-symbols-outlined"
+              data-icon="published_with_changes"
+              >published_with_changes</span
+            >
+            <span class="font-label-sm text-label-sm">Replace</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Simple micro-interaction for the tools
+      const tools = document.querySelectorAll('.tool-strip button');
+      tools.forEach((tool) => {
+        tool.addEventListener('click', () => {
+          tools.forEach((t) =>
+            t.classList.remove('active-tool', 'text-secondary'),
+          );
+          tools.forEach((t) => t.classList.add('text-on-surface-variant'));
+          tool.classList.add('active-tool');
+          tool.classList.remove('text-on-surface-variant');
+        });
+      });
+
+      // Mock processing simulation
+      function simulateProcess() {
+        const overlay = document.getElementById('processing-overlay');
+        overlay.classList.remove('hidden');
+        overlay.classList.add('flex');
+
+        setTimeout(() => {
+          overlay.classList.add('hidden');
+          overlay.classList.remove('flex');
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>

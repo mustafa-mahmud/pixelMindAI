@@ -1,0 +1,510 @@
+<!doctype html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>PixelMind AI Pro - Subscription</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700;800&amp;family=Geist:wght@400;500;600&amp;family=Inter:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #131313;
+        color: #e5e2e1;
+        font-family: 'Inter', sans-serif;
+        overflow-x: hidden;
+      }
+
+      .premium-gradient {
+        background:
+          radial-gradient(
+            circle at top right,
+            rgba(221, 183, 255, 0.15),
+            transparent
+          ),
+          radial-gradient(
+            circle at bottom left,
+            rgba(76, 215, 246, 0.1),
+            transparent
+          );
+      }
+
+      .glass-card {
+        background: rgba(20, 20, 20, 0.7);
+        backdrop-filter: blur(20px);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .gold-shimmer {
+        background: linear-gradient(90deg, #ffd700, #e6be8a, #ffd700);
+        background-size: 200% auto;
+        animation: shimmer 3s linear infinite;
+      }
+
+      @keyframes shimmer {
+        0% {
+          background-position: 0% 50%;
+        }
+        100% {
+          background-position: 200% 50%;
+        }
+      }
+
+      .glow-purple {
+        box-shadow: 0 0 25px rgba(221, 183, 255, 0.2);
+      }
+
+      .material-symbols-outlined {
+        font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 24;
+      }
+
+      .fill-icon {
+        font-variation-settings: 'FILL' 1;
+      }
+    </style>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'on-tertiary-container': '#560038',
+              'on-secondary-container': '#00424e',
+              'surface-container-high': '#2a2a2a',
+              'surface-container': '#201f1f',
+              'on-surface': '#e5e2e1',
+              secondary: '#4cd7f6',
+              'on-error-container': '#ffdad6',
+              'surface-dim': '#131313',
+              'surface-container-highest': '#353534',
+              'on-tertiary-fixed-variant': '#85145a',
+              'on-primary-fixed': '#2c0051',
+              'secondary-fixed': '#acedff',
+              'surface-bright': '#3a3939',
+              'on-secondary': '#003640',
+              background: '#131313',
+              outline: '#988d9f',
+              'on-primary': '#490080',
+              'on-secondary-fixed-variant': '#004e5c',
+              'surface-container-low': '#1c1b1b',
+              'on-secondary-fixed': '#001f26',
+              error: '#ffb4ab',
+              'on-primary-fixed-variant': '#6900b3',
+              'surface-tint': '#ddb7ff',
+              'primary-container': '#b76dff',
+              'on-primary-container': '#400071',
+              'tertiary-container': '#e364a7',
+              'tertiary-fixed-dim': '#ffafd3',
+              'inverse-primary': '#842bd2',
+              'inverse-surface': '#e5e2e1',
+              'on-error': '#690005',
+              'secondary-fixed-dim': '#4cd7f6',
+              'surface-container-lowest': '#0e0e0e',
+              'on-tertiary-fixed': '#3d0026',
+              surface: '#131313',
+              'primary-fixed': '#f0dbff',
+              'on-background': '#e5e2e1',
+              tertiary: '#ffafd3',
+              'secondary-container': '#03b5d3',
+              'on-tertiary': '#620040',
+              'outline-variant': '#4d4354',
+              'primary-fixed-dim': '#ddb7ff',
+              'inverse-on-surface': '#313030',
+              'tertiary-fixed': '#ffd8e7',
+              'surface-variant': '#353534',
+              primary: '#ddb7ff',
+              'on-surface-variant': '#cfc2d6',
+              'error-container': '#93000a',
+            },
+            borderRadius: {
+              DEFAULT: '0.25rem',
+              lg: '0.5rem',
+              xl: '0.75rem',
+              full: '9999px',
+            },
+            spacing: {
+              'container-margin-desktop': '40px',
+              'section-gap': '80px',
+              'container-margin-mobile': '20px',
+              'stack-unit': '8px',
+              gutter: '24px',
+            },
+            fontFamily: {
+              'headline-lg-mobile': ['Hanken Grotesk'],
+              'label-sm': ['Geist'],
+              'body-md': ['Inter'],
+              'body-lg': ['Inter'],
+              'headline-xl': ['Hanken Grotesk'],
+              'headline-lg': ['Hanken Grotesk'],
+              'label-md': ['Geist'],
+            },
+            fontSize: {
+              'headline-lg-mobile': [
+                '28px',
+                { lineHeight: '34px', fontWeight: '700' },
+              ],
+              'label-sm': ['12px', { lineHeight: '16px', fontWeight: '600' }],
+              'body-md': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+              'body-lg': ['18px', { lineHeight: '28px', fontWeight: '400' }],
+              'headline-xl': [
+                '48px',
+                {
+                  lineHeight: '56px',
+                  letterSpacing: '-0.02em',
+                  fontWeight: '800',
+                },
+              ],
+              'headline-lg': [
+                '32px',
+                {
+                  lineHeight: '40px',
+                  letterSpacing: '-0.01em',
+                  fontWeight: '700',
+                },
+              ],
+              'label-md': [
+                '14px',
+                {
+                  lineHeight: '20px',
+                  letterSpacing: '0.02em',
+                  fontWeight: '500',
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+  </head>
+  <body class="premium-gradient min-h-screen pb-24">
+    <!-- Top App Bar -->
+    <header
+      class="fixed top-0 w-full z-50 bg-surface-container/70 backdrop-blur-xl border-b border-white/10 flex justify-between items-center px-container-margin-mobile h-16"
+    >
+      <div class="flex items-center gap-4">
+        <button
+          class="material-symbols-outlined text-on-surface-variant hover:bg-white/5 p-2 rounded-full transition-colors active:scale-95"
+          data-icon="close"
+        >
+          close
+        </button>
+      </div>
+      <h1
+        class="font-headline-lg-mobile text-headline-lg-mobile font-bold tracking-tighter text-primary"
+      >
+        LUMINA AI
+      </h1>
+      <div class="w-10"></div>
+      <!-- Spacer for balance -->
+    </header>
+    <main class="pt-24 px-container-margin-mobile max-w-4xl mx-auto">
+      <!-- Hero Section -->
+      <section class="relative mb-12 rounded-3xl overflow-hidden h-72 group">
+        <div
+          class="absolute inset-0 bg-cover bg-center transform transition-transform duration-700 group-hover:scale-110"
+          data-alt="A high-end cinematic abstract illustration featuring swirling luminous purple and gold crystalline structures. The lighting is dramatic and luxurious, with a deep black background that makes the golden particles and neon purple ribbons of light pop. The aesthetic is futuristic and artistic, representing high-end AI processing power and digital craftsmanship. The overall mood is sophisticated and premium, like a high-end tech showcase."
+          style="
+            background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBqLZNhvqb3Cg2Ee6OJEhkQBlInl06mkBoxvObEWn9A4ANOQP1OWXlX-hLxlNZBmn7-HBwc9uam2nBliuGOW_G5XNHOlkvY3H1UtdVHxrCzcvu8zuQjq8-zc5tQu_DKuLvydJTFpYlqp--F7pyxVR8ik0zJjZOBqk-rmd4tCnlArCBaNgj51gdyuyq2DCWksfae5E2Z6vQQpD2qcQ2S1WUJWDHp_HgnSno8cTY82xbP2SFq9HL1IHXAdhiRCjJwI_5wXuQQwJrtrVY');
+          "
+        ></div>
+        <div
+          class="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent"
+        ></div>
+        <div class="absolute bottom-6 left-6 right-6 text-center">
+          <span
+            class="inline-block py-1 px-3 mb-3 bg-primary/20 border border-primary/30 rounded-full text-primary font-label-md text-label-md"
+            >PREMIUM MEMBERSHIP</span
+          >
+          <h2
+            class="font-headline-xl text-headline-xl text-white tracking-tight"
+          >
+            PixelMind AI Pro
+          </h2>
+          <p class="font-body-md text-body-md text-on-surface-variant mt-2">
+            Unlock the full potential of creative intelligence.
+          </p>
+        </div>
+      </section>
+      <!-- Perks Section -->
+      <section class="mb-12 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div
+          class="flex items-center gap-4 p-4 glass-card rounded-2xl border border-white/5"
+        >
+          <div
+            class="w-10 h-10 flex items-center justify-center rounded-full bg-secondary/10 border border-secondary/20"
+          >
+            <span
+              class="material-symbols-outlined text-secondary fill-icon"
+              data-icon="auto_fix_high"
+              style="font-variation-settings: 'FILL' 1"
+              >auto_fix_high</span
+            >
+          </div>
+          <div>
+            <h3 class="font-label-md text-label-md text-on-surface">
+              Unlimited generations
+            </h3>
+            <p class="font-label-sm text-label-sm text-on-surface-variant">
+              Create without boundaries
+            </p>
+          </div>
+        </div>
+        <div
+          class="flex items-center gap-4 p-4 glass-card rounded-2xl border border-white/5"
+        >
+          <div
+            class="w-10 h-10 flex items-center justify-center rounded-full bg-secondary/10 border border-secondary/20"
+          >
+            <span
+              class="material-symbols-outlined text-secondary fill-icon"
+              data-icon="bolt"
+              style="font-variation-settings: 'FILL' 1"
+              >bolt</span
+            >
+          </div>
+          <div>
+            <h3 class="font-label-md text-label-md text-on-surface">
+              Faster Processing
+            </h3>
+            <p class="font-label-sm text-label-sm text-on-surface-variant">
+              Priority server access
+            </p>
+          </div>
+        </div>
+        <div
+          class="flex items-center gap-4 p-4 glass-card rounded-2xl border border-white/5"
+        >
+          <div
+            class="w-10 h-10 flex items-center justify-center rounded-full bg-secondary/10 border border-secondary/20"
+          >
+            <span
+              class="material-symbols-outlined text-secondary fill-icon"
+              data-icon="high_quality"
+              style="font-variation-settings: 'FILL' 1"
+              >high_quality</span
+            >
+          </div>
+          <div>
+            <h3 class="font-label-md text-label-md text-on-surface">
+              4K Export
+            </h3>
+            <p class="font-label-sm text-label-sm text-on-surface-variant">
+              Ultra-high resolution results
+            </p>
+          </div>
+        </div>
+        <div
+          class="flex items-center gap-4 p-4 glass-card rounded-2xl border border-white/5"
+        >
+          <div
+            class="w-10 h-10 flex items-center justify-center rounded-full bg-secondary/10 border border-secondary/20"
+          >
+            <span
+              class="material-symbols-outlined text-secondary fill-icon"
+              data-icon="block"
+              style="font-variation-settings: 'FILL' 1"
+              >block</span
+            >
+          </div>
+          <div>
+            <h3 class="font-label-md text-label-md text-on-surface">No Ads</h3>
+            <p class="font-label-sm text-label-sm text-on-surface-variant">
+              Clean, focused experience
+            </p>
+          </div>
+        </div>
+      </section>
+      <!-- Pricing Cards -->
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <!-- Monthly -->
+        <div
+          class="relative glass-card p-8 rounded-[32px] border border-white/10 cursor-pointer transition-all duration-300 hover:border-primary/50"
+          id="plan-monthly"
+          onclick="selectPlan('monthly')"
+        >
+          <div class="mb-6">
+            <h4
+              class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest"
+            >
+              Monthly
+            </h4>
+            <div class="flex items-baseline mt-2">
+              <span class="text-4xl font-bold text-white">$19.99</span>
+              <span class="text-on-surface-variant ml-2">/mo</span>
+            </div>
+          </div>
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-center gap-3">
+              <span
+                class="material-symbols-outlined text-[#FFD700] text-sm"
+                data-icon="check_circle"
+                >check_circle</span
+              >
+              <span class="font-body-md text-body-md text-on-surface-variant"
+                >All Pro features</span
+              >
+            </li>
+            <li class="flex items-center gap-3">
+              <span
+                class="material-symbols-outlined text-[#FFD700] text-sm"
+                data-icon="check_circle"
+                >check_circle</span
+              >
+              <span class="font-body-md text-body-md text-on-surface-variant"
+                >Cancel anytime</span
+              >
+            </li>
+          </ul>
+          <div
+            class="radio-indicator absolute top-6 right-6 w-6 h-6 border-2 border-outline-variant rounded-full flex items-center justify-center"
+          >
+            <div
+              class="inner-dot w-3 h-3 bg-primary rounded-full opacity-0 transition-opacity"
+            ></div>
+          </div>
+        </div>
+        <!-- Yearly -->
+        <div
+          class="relative glass-card p-8 rounded-[32px] border-2 border-primary glow-purple cursor-pointer transition-all duration-300 group"
+          id="plan-yearly"
+          onclick="selectPlan('yearly')"
+        >
+          <div
+            class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-on-primary font-label-sm text-label-sm py-1 px-4 rounded-full shadow-lg"
+          >
+            BEST VALUE
+          </div>
+          <div class="mb-6">
+            <h4
+              class="font-label-md text-label-md text-on-surface-variant uppercase tracking-widest"
+            >
+              Yearly
+            </h4>
+            <div class="flex items-baseline mt-2">
+              <span class="text-4xl font-bold text-white">$149.99</span>
+              <span class="text-on-surface-variant ml-2">/yr</span>
+            </div>
+            <p class="text-primary font-label-sm text-label-sm mt-1">
+              Save 38%
+            </p>
+          </div>
+          <ul class="space-y-4 mb-8">
+            <li class="flex items-center gap-3">
+              <span
+                class="material-symbols-outlined text-[#FFD700] text-sm"
+                data-icon="check_circle"
+                >check_circle</span
+              >
+              <span class="font-body-md text-body-md text-on-surface-variant"
+                >Everything in Monthly</span
+              >
+            </li>
+            <li class="flex items-center gap-3">
+              <span
+                class="material-symbols-outlined text-[#FFD700] text-sm"
+                data-icon="check_circle"
+                >check_circle</span
+              >
+              <span class="font-body-md text-body-md text-on-surface-variant"
+                >2 months free</span
+              >
+            </li>
+          </ul>
+          <div
+            class="radio-indicator absolute top-6 right-6 w-6 h-6 border-2 border-primary rounded-full flex items-center justify-center"
+          >
+            <div
+              class="inner-dot w-3 h-3 bg-primary rounded-full opacity-100 transition-opacity"
+            ></div>
+          </div>
+        </div>
+      </section>
+      <!-- Terms -->
+      <p
+        class="text-center font-label-sm text-label-sm text-on-surface-variant/60 px-6"
+      >
+        Subscription automatically renews. You can manage your subscription and
+        turn off auto-renewal in your Account Settings after purchase.
+      </p>
+    </main>
+    <!-- Bottom Action Area -->
+    <div
+      class="fixed bottom-0 left-0 right-0 p-6 bg-gradient-to-t from-background via-background to-transparent z-40"
+    >
+      <div class="max-w-4xl mx-auto">
+        <button
+          class="w-full h-16 rounded-full gold-shimmer text-on-primary-container font-headline-lg-mobile text-headline-lg-mobile font-bold flex items-center justify-center gap-2 shadow-[0_0_40px_rgba(221,183,255,0.4)] active:scale-95 transition-transform duration-150"
+        >
+          <span>Upgrade Now</span>
+          <span class="material-symbols-outlined" data-icon="arrow_forward"
+            >arrow_forward</span
+          >
+        </button>
+      </div>
+    </div>
+    <script>
+      function selectPlan(plan) {
+        const monthly = document.getElementById('plan-monthly');
+        const yearly = document.getElementById('plan-yearly');
+
+        if (plan === 'monthly') {
+          monthly.classList.add('border-primary', 'glow-purple', 'border-2');
+          monthly.classList.remove('border-white/10');
+          monthly
+            .querySelector('.inner-dot')
+            .classList.replace('opacity-0', 'opacity-100');
+          monthly
+            .querySelector('.radio-indicator')
+            .classList.replace('border-outline-variant', 'border-primary');
+
+          yearly.classList.remove('border-primary', 'glow-purple', 'border-2');
+          yearly.classList.add('border-white/10');
+          yearly
+            .querySelector('.inner-dot')
+            .classList.replace('opacity-100', 'opacity-0');
+          yearly
+            .querySelector('.radio-indicator')
+            .classList.replace('border-primary', 'border-outline-variant');
+        } else {
+          yearly.classList.add('border-primary', 'glow-purple', 'border-2');
+          yearly.classList.remove('border-white/10');
+          yearly
+            .querySelector('.inner-dot')
+            .classList.replace('opacity-0', 'opacity-100');
+          yearly
+            .querySelector('.radio-indicator')
+            .classList.replace('border-outline-variant', 'border-primary');
+
+          monthly.classList.remove('border-primary', 'glow-purple', 'border-2');
+          monthly.classList.add('border-white/10');
+          monthly
+            .querySelector('.inner-dot')
+            .classList.replace('opacity-100', 'opacity-0');
+          monthly
+            .querySelector('.radio-indicator')
+            .classList.replace('border-primary', 'border-outline-variant');
+        }
+      }
+    </script>
+  </body>
+</html>

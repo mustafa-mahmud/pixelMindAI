@@ -1,5 +1,5 @@
-import { SplashScreen } from '@/components/splash/SplashScreen';
+import { HomeScreen } from '@/components/home/HomeScreen';
 
 export default function Index() {
-  return <SplashScreen />;
+  return <HomeScreen />;
 }

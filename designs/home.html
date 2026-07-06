@@ -1,0 +1,501 @@
+<!doctype html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>PixelMind AI - Home</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;700;800&amp;family=Inter:wght@400;500&amp;family=Geist:wght@400;500;600&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'on-tertiary-container': '#560038',
+              'on-secondary-container': '#00424e',
+              'surface-container-high': '#2a2a2a',
+              'surface-container': '#201f1f',
+              'on-surface': '#e5e2e1',
+              secondary: '#4cd7f6',
+              'on-error-container': '#ffdad6',
+              'surface-dim': '#131313',
+              'surface-container-highest': '#353534',
+              'on-tertiary-fixed-variant': '#85145a',
+              'on-primary-fixed': '#2c0051',
+              'secondary-fixed': '#acedff',
+              'surface-bright': '#3a3939',
+              'on-secondary': '#003640',
+              background: '#131313',
+              outline: '#988d9f',
+              'on-primary': '#490080',
+              'on-secondary-fixed-variant': '#004e5c',
+              'surface-container-low': '#1c1b1b',
+              'on-secondary-fixed': '#001f26',
+              error: '#ffb4ab',
+              'on-primary-fixed-variant': '#6900b3',
+              'surface-tint': '#ddb7ff',
+              'primary-container': '#b76dff',
+              'on-primary-container': '#400071',
+              'tertiary-container': '#e364a7',
+              'tertiary-fixed-dim': '#ffafd3',
+              'inverse-primary': '#842bd2',
+              'inverse-surface': '#e5e2e1',
+              'on-error': '#690005',
+              'secondary-fixed-dim': '#4cd7f6',
+              'surface-container-lowest': '#0e0e0e',
+              'on-tertiary-fixed': '#3d0026',
+              surface: '#131313',
+              'primary-fixed': '#f0dbff',
+              'on-background': '#e5e2e1',
+              tertiary: '#ffafd3',
+              'secondary-container': '#03b5d3',
+              'on-tertiary': '#620040',
+              'outline-variant': '#4d4354',
+              'primary-fixed-dim': '#ddb7ff',
+              'inverse-on-surface': '#313030',
+              'tertiary-fixed': '#ffd8e7',
+              'surface-variant': '#353534',
+              primary: '#ddb7ff',
+              'on-surface-variant': '#cfc2d6',
+              'error-container': '#93000a',
+            },
+            borderRadius: {
+              DEFAULT: '0.25rem',
+              lg: '0.5rem',
+              xl: '0.75rem',
+              full: '9999px',
+            },
+            spacing: {
+              'container-margin-desktop': '40px',
+              'section-gap': '80px',
+              'container-margin-mobile': '20px',
+              'stack-unit': '8px',
+              gutter: '24px',
+            },
+            fontFamily: {
+              'headline-lg-mobile': ['Hanken Grotesk'],
+              'label-sm': ['Geist'],
+              'body-md': ['Inter'],
+              'body-lg': ['Inter'],
+              'headline-xl': ['Hanken Grotesk'],
+              'headline-lg': ['Hanken Grotesk'],
+              'label-md': ['Geist'],
+            },
+            fontSize: {
+              'headline-lg-mobile': [
+                '28px',
+                { lineHeight: '34px', fontWeight: '700' },
+              ],
+              'label-sm': ['12px', { lineHeight: '16px', fontWeight: '600' }],
+              'body-md': ['16px', { lineHeight: '24px', fontWeight: '400' }],
+              'body-lg': ['18px', { lineHeight: '28px', fontWeight: '400' }],
+              'headline-xl': [
+                '48px',
+                {
+                  lineHeight: '56px',
+                  letterSpacing: '-0.02em',
+                  fontWeight: '800',
+                },
+              ],
+              'headline-lg': [
+                '32px',
+                {
+                  lineHeight: '40px',
+                  letterSpacing: '-0.01em',
+                  fontWeight: '700',
+                },
+              ],
+              'label-md': [
+                '14px',
+                {
+                  lineHeight: '20px',
+                  letterSpacing: '0.02em',
+                  fontWeight: '500',
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        background-color: #000000;
+        color: #e5e2e1;
+        -webkit-font-smoothing: antialiased;
+      }
+      .glass-panel {
+        background: rgba(20, 20, 20, 0.7);
+        backdrop-filter: blur(24px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+      }
+      .neon-purple-glow {
+        box-shadow: 0 0 20px rgba(183, 109, 255, 0.25);
+      }
+      .neon-cyan-glow {
+        box-shadow: 0 0 15px rgba(76, 215, 246, 0.3);
+      }
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+      .active-tab-glow {
+        box-shadow: 0 0 15px rgba(76, 215, 246, 0.4);
+      }
+    </style>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+  </head>
+  <body class="bg-background min-h-screen pb-32">
+    <!-- Top Navigation Bar -->
+    <header
+      class="fixed top-0 w-full z-50 bg-surface-container/70 backdrop-blur-xl border-b border-white/10 h-16 flex justify-between items-center px-container-margin-mobile"
+    >
+      <div class="flex items-center gap-3">
+        <h1
+          class="font-headline-lg-mobile text-headline-lg-mobile font-bold tracking-tighter text-primary"
+        >
+          LUMINA AI
+        </h1>
+      </div>
+      <div class="flex items-center gap-4">
+        <button
+          class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/5 transition-colors active:scale-95 duration-200"
+        >
+          <span class="material-symbols-outlined text-on-surface">search</span>
+        </button>
+        <button
+          class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-white/5 transition-colors active:scale-95 duration-200 relative"
+        >
+          <span class="material-symbols-outlined text-on-surface"
+            >notifications</span
+          >
+          <span
+            class="absolute top-2 right-2 w-2 h-2 bg-primary rounded-full"
+          ></span>
+        </button>
+        <div
+          class="w-10 h-10 rounded-full border border-white/20 overflow-hidden"
+        >
+          <img
+            class="w-full h-full object-cover"
+            data-alt="A close-up portrait of a digital artist user with a futuristic aesthetic, featuring soft neon purple lighting reflections on their face against a deep black studio background. The style is professional and high-end, matching a cutting-edge AI photo studio interface."
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGjCUBr1ssra2xmwm6gdObIqPI4gvkTUQrmsqEUguVku1laM9SVaUQi9cxR1J4_r2n84zDfWdHa2z-sioHNrpifT0hFuFsRDyZoNHM0lgcGnN-3M2hFMll5QhiuZ9T8pX4eyHm6CB8bDCgNVKSr3sACdbdbg9V0RDVlvucih4B3hjgDo2APaOHnz2FzFEuYNK_8VfrwwUAUKg1cQzkOpjtSWB_opidluXHcLSEJ2jWZcdeATx7h54dkrYdqhY-lZMyDr242pKYeKA"
+          />
+        </div>
+      </div>
+    </header>
+    <main class="pt-20 px-container-margin-mobile space-y-8">
+      <!-- Welcome Section -->
+      <section>
+        <p
+          class="font-label-md text-label-md text-primary tracking-widest uppercase"
+        >
+          Welcome Back
+        </p>
+        <h2
+          class="font-headline-lg-mobile text-headline-lg-mobile text-on-surface"
+        >
+          Ready to create?
+        </h2>
+      </section>
+      <!-- Hero: Start Creating Card -->
+      <section class="glass-panel rounded-[32px] p-8 relative overflow-hidden">
+        <div class="relative z-10 space-y-6">
+          <div>
+            <h3 class="font-headline-lg text-headline-lg text-white">
+              Start Creating
+            </h3>
+            <p
+              class="font-body-md text-body-md text-on-surface-variant max-w-[240px]"
+            >
+              Transform your vision into digital masterpieces with AI.
+            </p>
+          </div>
+          <div class="flex flex-col gap-3">
+            <button
+              class="w-full py-4 bg-primary-container text-on-primary-container font-label-md text-label-md rounded-2xl font-bold flex items-center justify-center gap-2 neon-purple-glow active:scale-[0.98] transition-transform"
+            >
+              <span class="material-symbols-outlined">upload_file</span>
+              Upload Photo
+            </button>
+            <button
+              class="w-full py-4 border border-secondary text-secondary font-label-md text-label-md rounded-2xl font-bold flex items-center justify-center gap-2 neon-cyan-glow active:scale-[0.98] transition-transform bg-secondary/5"
+            >
+              <span class="material-symbols-outlined">auto_fix_high</span>
+              Generate AI Image
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- AI Tools Categories -->
+      <section class="space-y-4">
+        <div class="flex items-center justify-between">
+          <h4 class="font-label-md text-label-md text-on-surface font-bold">
+            AI Tools
+          </h4>
+          <button class="text-secondary font-label-sm text-label-sm">
+            View All
+          </button>
+        </div>
+        <div
+          class="flex gap-3 overflow-x-auto hide-scrollbar -mx-container-margin-mobile px-container-margin-mobile"
+        >
+          <div
+            class="glass-panel px-6 py-3 rounded-full flex items-center gap-2 whitespace-nowrap active:scale-95 transition-all"
+          >
+            <span class="material-symbols-outlined text-secondary text-[20px]"
+              >auto_awesome</span
+            >
+            <span class="font-label-md text-label-md text-on-surface"
+              >Enhance</span
+            >
+          </div>
+          <div
+            class="glass-panel px-6 py-3 rounded-full flex items-center gap-2 whitespace-nowrap active:scale-95 transition-all"
+          >
+            <span class="material-symbols-outlined text-secondary text-[20px]"
+              >layers_clear</span
+            >
+            <span class="font-label-md text-label-md text-on-surface"
+              >Remove BG</span
+            >
+          </div>
+          <div
+            class="glass-panel px-6 py-3 rounded-full flex items-center gap-2 whitespace-nowrap active:scale-95 transition-all"
+          >
+            <span class="material-symbols-outlined text-secondary text-[20px]"
+              >history_edu</span
+            >
+            <span class="font-label-md text-label-md text-on-surface"
+              >Restore</span
+            >
+          </div>
+          <div
+            class="glass-panel px-6 py-3 rounded-full flex items-center gap-2 whitespace-nowrap active:scale-95 transition-all"
+          >
+            <span class="material-symbols-outlined text-secondary text-[20px]"
+              >palette</span
+            >
+            <span class="font-label-md text-label-md text-on-surface"
+              >Anime</span
+            >
+          </div>
+        </div>
+      </section>
+      <!-- Recent Projects: Masonry Grid -->
+      <section class="space-y-4">
+        <h4 class="font-label-md text-label-md text-on-surface font-bold">
+          Recent Projects
+        </h4>
+        <div class="grid grid-cols-2 gap-4 items-start">
+          <div class="space-y-4">
+            <div class="relative rounded-[24px] overflow-hidden group">
+              <img
+                class="w-full h-auto aspect-[3/4] object-cover group-hover:scale-105 transition-transform duration-500"
+                data-alt="A professional high-fashion portrait edited in an AI studio, featuring a model with shimmering holographic skin and sleek obsidian-black clothing. The background is a minimalist dark void with soft cyan rim lighting. The overall mood is avant-garde, expensive, and futuristic."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8bSjQq_PURQSqR3rBetvTigQZQXmPM9NCnoiXsOzhRTEeF66WCJRF8MvsMowQ_-MdCn7VZUSq_BbI8RPyZu26ZPBikJc_8cdV2hCxQFF3SPZ3t0L3khaEgSSPYpiRoLu-byMiaAkzKNSRNTeGJy8Hm18_k2GuHfK3FAPUxMbFnZR7mc_lq2GxY2Tust8swAyDgTKKp7rt17aVK4KyDTmV7xgpIyinvBrBfOH9ChRm8ub03ES29A9cThV6W2pOdLwN0298fi_tQC4"
+              />
+              <div
+                class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent"
+              >
+                <p class="font-label-sm text-label-sm text-white truncate">
+                  Futuristic Vogue
+                </p>
+              </div>
+            </div>
+            <div class="relative rounded-[24px] overflow-hidden group">
+              <img
+                class="w-full h-auto aspect-square object-cover group-hover:scale-105 transition-transform duration-500"
+                data-alt="A surreal AI-generated landscape showing a forest of crystal trees illuminated by a violet nebula sky. Deep blacks and vibrant neon purple tones dominate the palette, with light refracting through the translucent crystal structures. The style is hyper-realistic digital art with a luxury glass-like texture."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA37lxPglYBJHPGly9McAYEQTveg-Jc2fYSha6RW4wzdgOkMv7CazvT_7fj-2gBfV3NRxpW9vimsG4tYX_fiksnfLTGTP4Qx_N_x4J8myV8fDhSuwdZ0Anjxf-OFGOClbFxT1pzxxMhSBZNAfsxPeaH4yd0Ai_OluCzdt1GTz-kBrBOk_n8kHS24pErGA100bxDW5uw_wpucQozLG4iZXUZPOsaEGTj3AXetLoKkw9IM0RqxHDIVjK4156BLVRXciU6lYS_efed36M"
+              />
+              <div
+                class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent"
+              >
+                <p class="font-label-sm text-label-sm text-white truncate">
+                  Crystal Peaks
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="space-y-4 pt-8">
+            <div class="relative rounded-[24px] overflow-hidden group">
+              <img
+                class="w-full h-auto aspect-[4/5] object-cover group-hover:scale-105 transition-transform duration-500"
+                data-alt="A high-end architectural visualization of a minimalist glass villa at night, glowing with warm amber interior lights against a cool dark blue and black exterior. The architecture features clean lines and large glass panels that reflect a dark, still pool of water in the foreground. Professional, sleek, and high-performance visual style."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDlFJNf0hK3ULnxQgUlIDCLVitRfaeiWjrmVcxK2YMzwCp2n18Rm4zcIY9StwjpS7DQwRIlQuPEPfLDSrzf1odWX8yjYtscscHvKFKefCiry_EWUy9rWdK627PHTgkJvzGFQOv64iOX2sKAqiaO-_qVoCEuvmPRcROL8m9mytNIM3yA9crtBn2oqN9wFOcfTC_HJzxunDG1jIf87d7B7C-JuoQ_1JqXOyAP4-qRp6Oj20-_Ogp1ymhi79GJej1eiWthJo3HVdBCP7I"
+              />
+              <div
+                class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent"
+              >
+                <p class="font-label-sm text-label-sm text-white truncate">
+                  Glass Estate
+                </p>
+              </div>
+            </div>
+            <div class="relative rounded-[24px] overflow-hidden group">
+              <img
+                class="w-full h-auto aspect-[3/2] object-cover group-hover:scale-105 transition-transform duration-500"
+                data-alt="An abstract digital art composition of flowing liquid metal in deep charcoal and electric cyan. The metallic ribbons intertwine in a dark vacuum, creating highlights that shimmer with digital precision. The aesthetic is minimal, performance-oriented, and captures the essence of cutting-edge AI creativity."
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBbJMLqFpBKYeDwNXV_IxIYa8YHrLhAVOsf3pqULiYzGSU13xX-IcA85YsRLUpt7gu-xw9k3Ljv5APW7pZXk199zu0yVVsN8zFuUieKhr6FGWoi4JD3qnCeZbEoawrgNVlTzw9X7APPLgQzDu3WoIeycFgc-l-9kSlVdXp0CICS7A7nNlWQE6P4sQ5s1_jjfg_AYTI5beB_6a45Pbfe9ZT67xRkoNjVherphemhNB5e1Q82XN4qyYf-Ylczjm0XK5daOe_AogCuQs"
+              />
+              <div
+                class="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent"
+              >
+                <p class="font-label-sm text-label-sm text-white truncate">
+                  Liquid Flow
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- Trending AI Styles Carousel -->
+      <section class="space-y-4">
+        <h4 class="font-label-md text-label-md text-on-surface font-bold">
+          Trending Styles
+        </h4>
+        <div
+          class="flex gap-4 overflow-x-auto hide-scrollbar -mx-container-margin-mobile px-container-margin-mobile pb-4"
+        >
+          <div
+            class="min-w-[200px] h-64 rounded-[24px] overflow-hidden relative glass-panel group"
+          >
+            <img
+              class="w-full h-full object-cover"
+              data-alt="A portrait of a person transformed into a high-detail cyberpunk character, with subtle neon circuitry glowing beneath the skin in electric purple. The lighting is dramatic high-contrast noir style, set against a rain-slicked dark alleyway background. The overall aesthetic is gritty yet ultra-premium and polished."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIDBMt12VCfrz1mz_qsopIka0U7ME-zGY8tTqkOx7ZcB6BFU-6Pk06uFyPJt0azputNXXByZwu1ITLJIp7uJcnhvSsFTFjxTp7PTIXXsH57GqqS5zAJjwpNDDuvg4AoTQoYpnUtvlxWOUjjakTZCRsCur8Re29DFMNNU7hqk9K_-6EWdRY5T6446g4XrA2MDV60mL-rjj490LcYW8WBtZrTrhDDX_NH63uYhj7VtDdlFPwI7KFDBUv8X7P3pigN2iatdgONBRPkrk"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex flex-col justify-end p-6"
+            >
+              <span
+                class="font-label-sm text-label-sm text-secondary uppercase tracking-tighter"
+                >New Style</span
+              >
+              <h5 class="font-headline-lg-mobile text-[20px] text-white">
+                Cyberpunk 2077
+              </h5>
+            </div>
+          </div>
+          <div
+            class="min-w-[200px] h-64 rounded-[24px] overflow-hidden relative glass-panel group"
+          >
+            <img
+              class="w-full h-full object-cover"
+              data-alt="A classic oil painting aesthetic reimagined with AI, showing a majestic lion in a regal pose. The brushstrokes are thick and expressive, with a palette of deep umber, gold, and obsidian. The lighting is chiaroscuro, highlighting the lion's mane with a luminous glow that feels both ancient and digitally perfected."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-T4D5ne6ujcKYtcsI0_mJfCcXcY3ZdX2m0TkZz3hLFlkyfmZ6VuW45FndUqo3n1Hm2R4G9NHkMhm59TwyJW2-hpCW8kQSPMPfGEIfLGn9aZuq6lRXVc8LIYmex-lrDqEfe7BC8v7nb24MyY5tTws_D37hB49nscJKE2XxHRJo4MpZcC1HPOS7HQyCjQDluFkrArBbxWQqM04ss4iZe7QdHcIaeZo5SpiU3icrMT98covE9-0ZQXWApbT8QO55xS8tn4lXdi9Q0lw"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex flex-col justify-end p-6"
+            >
+              <span
+                class="font-label-sm text-label-sm text-secondary uppercase tracking-tighter"
+                >Popular</span
+              >
+              <h5 class="font-headline-lg-mobile text-[20px] text-white">
+                Classical Oil
+              </h5>
+            </div>
+          </div>
+          <div
+            class="min-w-[200px] h-64 rounded-[24px] overflow-hidden relative glass-panel group"
+          >
+            <img
+              class="w-full h-full object-cover"
+              data-alt="A minimalist 3D rendering of a glass-like character with refractive properties, standing in a void with a soft purple ambient light. The style is cute but highly professional, resembling premium tech branding illustrations. The material quality shows realistic caustics and soft shadows on a pitch-black surface."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDT6jiAqHtkof5XzNbGiXnBH_NZEbHDFxyQyZyF16wSvAptjwqRDvL4vP2YGCDEE6YzlXi4-DmGdHkfzXFvPiRcmS78uF__bK9nenR6VxrEAq6TMd7FUYe1ZvGuQ4Gf6X24tpjC08nVCFRIFa953RDMlS9erniuuzWtT9Ud4YecmQNkYqQ8nw4UQuuiOLaCdKARvHs86BSuq4Elr1VLlbTH9rYkGkguM73hPittSL2YiXzfhwKV66YxAOtckafenLYnlQk_TA96vso"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex flex-col justify-end p-6"
+            >
+              <span
+                class="font-label-sm text-label-sm text-secondary uppercase tracking-tighter"
+                >Featured</span
+              >
+              <h5 class="font-headline-lg-mobile text-[20px] text-white">
+                Prism Glass
+              </h5>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Shared Bottom Navigation Bar -->
+    <nav
+      class="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] rounded-full z-50 bg-surface-container-low/70 backdrop-blur-2xl border border-white/10 shadow-[0_0_20px_rgba(76,215,246,0.15)] flex justify-around items-center py-2 px-4"
+    >
+      <!-- Active Home -->
+      <button
+        class="flex items-center justify-center bg-secondary/20 text-secondary rounded-full w-12 h-12 active-tab-glow active:scale-90 transition-transform duration-150"
+      >
+        <span class="material-symbols-outlined">home</span>
+      </button>
+      <!-- Inactive Tools -->
+      <button
+        class="flex items-center justify-center text-on-surface-variant w-12 h-12 hover:text-secondary transition-all active:scale-90 duration-150"
+      >
+        <span class="material-symbols-outlined">auto_fix_high</span>
+      </button>
+      <!-- Inactive Create/Add -->
+      <button
+        class="flex items-center justify-center text-on-surface-variant w-12 h-12 hover:text-secondary transition-all active:scale-90 duration-150"
+      >
+        <span class="material-symbols-outlined">add_a_photo</span>
+      </button>
+      <!-- Inactive History -->
+      <button
+        class="flex items-center justify-center text-on-surface-variant w-12 h-12 hover:text-secondary transition-all active:scale-90 duration-150"
+      >
+        <span class="material-symbols-outlined">history</span>
+      </button>
+      <!-- Inactive Profile -->
+      <button
+        class="flex items-center justify-center text-on-surface-variant w-12 h-12 hover:text-secondary transition-all active:scale-90 duration-150"
+      >
+        <span class="material-symbols-outlined">person</span>
+      </button>
+    </nav>
+    <script>
+      // Simple micro-interactions for the tool chips
+      const toolChips = document.querySelectorAll('.glass-panel.px-6.py-3');
+      toolChips.forEach((chip) => {
+        chip.addEventListener('click', function () {
+          // Reset others
+          toolChips.forEach((c) => {
+            c.classList.remove('bg-secondary/10', 'border-secondary/30');
+            c.querySelector('span:first-child').classList.remove(
+              'text-secondary',
+            );
+          });
+          // Highlight active
+          this.classList.add('bg-secondary/10', 'border-secondary/30');
+          this.querySelector('span:first-child').classList.add(
+            'text-secondary',
+          );
+        });
+      });
+    </script>
+  </body>
+</html>
