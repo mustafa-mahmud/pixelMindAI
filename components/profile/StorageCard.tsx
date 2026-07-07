@@ -6,7 +6,7 @@ import { storageUsage } from './data';
 export function StorageCard() {
   return (
     <View
-      className="space-y-4 rounded-[28px] border border-white/10 bg-[#141414]/70 p-6"
+      className="space-y-4 rounded-[28px] my-5 border border-white/10 bg-[#141414]/70 p-6"
       style={{ borderTopColor: 'rgba(255,255,255,0.15)' }}
     >
       <View className="flex-row items-end justify-between">
