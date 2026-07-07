@@ -1,8 +1,7 @@
-import { ScrollView, View } from 'react-native';
+import { ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { LogoutSection } from '../../components/profile/LogoutSection';
-import { ProfileBottomNavigation } from '../../components/profile/ProfileBottomNavigation';
 import { ProfileHero } from '../../components/profile/ProfileHero';
 import { ProfileTopBar } from '../../components/profile/ProfileTopBar';
 import { SettingsList } from '../../components/profile/SettingsList';
@@ -17,7 +16,7 @@ export default function ProfileScreen() {
       <ProfileTopBar />
       <ScrollView
         className="flex-1"
-        contentContainerClassName="mx-auto w-full max-w-2xl space-y-8 px-5 pb-36 pt-24"
+        contentContainerClassName="mx-auto w-full max-w-2xl space-y-8 px-5 pb-36 pt-10"
         showsVerticalScrollIndicator={false}
       >
         <ProfileHero />

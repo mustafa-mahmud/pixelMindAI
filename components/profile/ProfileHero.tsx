@@ -11,11 +11,15 @@ export function ProfileHero() {
           <Image
             source={{ uri: profileUser.avatarUrl }}
             contentFit="cover"
-            className="h-full w-full rounded-full"
+            style={{
+              height: '100%',
+              width: '100%',
+              borderRadius: 100,
+            }}
           />
         </View>
         <View
-          className="absolute -bottom-2 left-1/2 -translate-x-1/2 rounded-full bg-[#ddb7ff] px-4 py-0.5"
+          className="absolute -bottom-2 self-center rounded-full bg-[#ddb7ff] px-4 py-0.5"
           style={{
             shadowColor: '#ddb7ff',
             shadowOpacity: 0.4,
@@ -28,11 +32,11 @@ export function ProfileHero() {
         </View>
       </View>
 
-      <View className="items-center">
-        <Text className="text-[32px] font-bold leading-10 tracking-[-0.32px] text-[#e5e2e1]">
+      <View className="items-center my-5">
+        <Text className="text-[25px] font-bold leading-10 tracking-[-0.32px] text-[#e5e2e1]">
           {profileUser.name}
         </Text>
-        <Text className="text-base leading-6 text-[#cfc2d6]">
+        <Text className="text-base text-center leading-6 text-[#cfc2d6]">
           {profileUser.email}
         </Text>
       </View>
