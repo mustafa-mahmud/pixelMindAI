@@ -5,7 +5,7 @@ import { profileUser } from './data';
 
 export function ProfileHero() {
   return (
-    <View className="items-center space-y-4 text-center">
+    <View className="items-center mt-5 space-y-4 text-center">
       <View className="relative">
         <View className="h-32 w-32 rounded-full border-2 border-[#ddb7ff] bg-[#353534] p-1">
           <Image

@@ -17,7 +17,11 @@ export function ProfileTopBar() {
         <Image
           source={{ uri: profileUser.smallAvatarUrl }}
           contentFit="cover"
-          className="h-full w-full"
+          // className="h-full w-full"
+          style={{
+            width: 50,
+            height: 50,
+          }}
         />
       </View>
     </View>

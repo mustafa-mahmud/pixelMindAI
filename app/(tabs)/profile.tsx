@@ -24,7 +24,6 @@ export default function ProfileScreen() {
         <SettingsList />
         <LogoutSection />
       </ScrollView>
-      {/* <ProfileBottomNavigation /> */}
     </SafeAreaView>
   );
 }
