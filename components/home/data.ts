@@ -78,10 +78,14 @@ export const TRENDING_STYLES = [
   },
 ];
 
-export const NAV_ITEMS: Array<{ icon: IconName; active?: boolean }> = [
-  { icon: 'home', active: true },
-  { icon: 'auto-fix-high' },
-  { icon: 'add-a-photo' },
-  { icon: 'history' },
-  { icon: 'person' },
+export const NAV_ITEMS: Array<{
+  icon: IconName;
+  active?: boolean;
+  link: string;
+}> = [
+  { icon: 'home', active: true, link: '/home' },
+  { icon: 'auto-fix-high', link: '/home' },
+  { icon: 'add-a-photo', link: '/home' },
+  { icon: 'history', link: '/home' },
+  { icon: 'person', link: '/profile' },
 ];

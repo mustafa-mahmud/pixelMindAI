@@ -1,14 +1,14 @@
 import { ScrollView, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { BottomNavigation } from './BottomNavigation';
-import { Header } from './Header';
-import { HeroCard } from './HeroCard';
-import { RecentProjects } from './RecentProjects';
-import { ToolsSection } from './ToolsSection';
-import { TrendingStyles } from './TrendingStyles';
+import { BottomNavigation } from '../../components/home/BottomNavigation';
+import { Header } from '../../components/home/Header';
+import { HeroCard } from '../../components/home/HeroCard';
+import { RecentProjects } from '../../components/home/RecentProjects';
+import { ToolsSection } from '../../components/home/ToolsSection';
+import { TrendingStyles } from '../../components/home/TrendingStyles';
 
-function WelcomeSection() {
+const WelcomeSection = () => {
   return (
     <View>
       <Text className="font-label-md text-label-md uppercase tracking-widest text-primary">
@@ -19,11 +19,14 @@ function WelcomeSection() {
       </Text>
     </View>
   );
-}
+};
 
-export function HomeScreen() {
+const HomeScreen = () => {
   return (
-    <SafeAreaView className="flex-1 bg-background" edges={['left', 'right']}>
+    <SafeAreaView
+      className="flex-1 bg-background"
+      edges={['left', 'right', 'top']}
+    >
       <Header />
       <ScrollView
         showsVerticalScrollIndicator={false}
@@ -36,7 +39,9 @@ export function HomeScreen() {
         <RecentProjects />
         <TrendingStyles />
       </ScrollView>
-      <BottomNavigation />
+      {/* <BottomNavigation /> */}
     </SafeAreaView>
   );
-}
+};
+
+export default HomeScreen;

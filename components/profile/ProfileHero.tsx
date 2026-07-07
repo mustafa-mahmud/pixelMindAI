@@ -1,0 +1,41 @@
+import { Image } from 'expo-image';
+import { Text, View } from 'react-native';
+
+import { profileUser } from './data';
+
+export function ProfileHero() {
+  return (
+    <View className="items-center space-y-4 text-center">
+      <View className="relative">
+        <View className="h-32 w-32 rounded-full border-2 border-[#ddb7ff] bg-[#353534] p-1">
+          <Image
+            source={{ uri: profileUser.avatarUrl }}
+            contentFit="cover"
+            className="h-full w-full rounded-full"
+          />
+        </View>
+        <View
+          className="absolute -bottom-2 left-1/2 -translate-x-1/2 rounded-full bg-[#ddb7ff] px-4 py-0.5"
+          style={{
+            shadowColor: '#ddb7ff',
+            shadowOpacity: 0.4,
+            shadowRadius: 15,
+          }}
+        >
+          <Text className="text-xs font-semibold leading-4 text-[#490080]">
+            PRO
+          </Text>
+        </View>
+      </View>
+
+      <View className="items-center">
+        <Text className="text-[32px] font-bold leading-10 tracking-[-0.32px] text-[#e5e2e1]">
+          {profileUser.name}
+        </Text>
+        <Text className="text-base leading-6 text-[#cfc2d6]">
+          {profileUser.email}
+        </Text>
+      </View>
+    </View>
+  );
+}
