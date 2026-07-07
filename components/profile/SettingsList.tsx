@@ -32,11 +32,14 @@ function SettingsRow({ item }: { item: SettingItem }) {
     <Pressable className="flex-row items-center justify-between p-4 active:bg-white/5">
       <View className="flex-row items-center gap-4">
         <View
+          style={{
+            backgroundColor: '#c4b6b6',
+          }}
           className={`h-10 w-10 items-center justify-center rounded-xl ${item.accentClass}`}
         >
           <MaterialIcons
             name={item.icon as keyof typeof MaterialIcons.glyphMap}
-            size={24}
+            size={25}
           />
         </View>
         <View>
