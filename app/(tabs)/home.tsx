@@ -1,8 +1,7 @@
 import { ScrollView, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
-import { BottomNavigation } from '../../components/home/BottomNavigation';
-import { Header } from '../../components/home/Header';
+import { Header } from '../../components/Header';
 import { HeroCard } from '../../components/home/HeroCard';
 import { RecentProjects } from '../../components/home/RecentProjects';
 import { ToolsSection } from '../../components/home/ToolsSection';
@@ -39,7 +38,6 @@ const HomeScreen = () => {
         <RecentProjects />
         <TrendingStyles />
       </ScrollView>
-      {/* <BottomNavigation /> */}
     </SafeAreaView>
   );
 };

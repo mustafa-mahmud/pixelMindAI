@@ -1,7 +1,7 @@
 import { COLORS } from '@/components/home/data';
 import { Ionicons } from '@expo/vector-icons';
 import { Tabs } from 'expo-router';
-import { View, Text, StyleSheet } from 'react-native';
+import { View } from 'react-native';
 
 const Layout = () => {
   const icons = {
