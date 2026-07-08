@@ -1,12 +1,12 @@
 import { MaterialIcons } from '@expo/vector-icons';
 import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 
-import { COLORS, USER_AVATAR } from './data';
+import { COLORS, USER_AVATAR } from './home/data';
 
 export function Header() {
   return (
-    <View className="absolute left-0 right-0 top-0 z-50 h-16 flex-row items-center justify-between border-b border-white/10 bg-surface-container/70 px-container-margin-mobile">
-      <Text className="font-headline-lg-mobile text-headline-lg-mobile font-bold tracking-tighter text-primary">
+    <View className="left-0 right-0 top-0 z-50 h-16 flex-row items-center justify-between border-b border-white/10 bg-surface-container/70 px-container-margin-mobile">
+      <Text className="font-headline-lg-mobile text-headline-lg-mobile font-bold tracking-tighter text-primary text-[19px]">
         LUMINA AI
       </Text>
 
