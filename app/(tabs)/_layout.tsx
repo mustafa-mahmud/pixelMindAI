@@ -8,6 +8,7 @@ const Layout = () => {
     home: ['home', 'home-outline'],
     profile: ['person', 'person-outline'],
     history: ['time', 'time-outline'],
+    upload: ['cloud-upload', 'cloud-upload-outline'],
   } as const;
   ///////////////////////////////////////////////////
   return (
@@ -68,6 +69,8 @@ const Layout = () => {
     >
       <Tabs.Screen name="home" />
       <Tabs.Screen name="profile" />
+      <Tabs.Screen name="history" />
+      <Tabs.Screen name="upload" />
     </Tabs>
   );
 };
