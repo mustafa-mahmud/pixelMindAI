@@ -9,6 +9,7 @@ const Layout = () => {
     profile: ['person', 'person-outline'],
     history: ['time', 'time-outline'],
     upload: ['cloud-upload', 'cloud-upload-outline'],
+    premium: ['star', 'star-outline'],
   } as const;
   ///////////////////////////////////////////////////
   return (
@@ -71,6 +72,7 @@ const Layout = () => {
       <Tabs.Screen name="profile" />
       <Tabs.Screen name="history" />
       <Tabs.Screen name="upload" />
+      <Tabs.Screen name="premium" />
     </Tabs>
   );
 };
