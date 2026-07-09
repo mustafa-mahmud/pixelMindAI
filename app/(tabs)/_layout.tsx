@@ -71,7 +71,7 @@ const Layout = () => {
       <Tabs.Screen name="home" />
       <Tabs.Screen name="profile" />
       <Tabs.Screen name="history" />
-      <Tabs.Screen name="upload" />
+      {/* <Tabs.Screen name="upload" /> */}
       <Tabs.Screen name="premium" />
     </Tabs>
   );

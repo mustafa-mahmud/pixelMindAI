@@ -1,6 +1,7 @@
 import { MaterialIcons } from '@expo/vector-icons';
 import type { ComponentProps, ReactNode } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { router } from 'expo-router';
 
 import { COLORS } from './data';
 
@@ -36,6 +37,7 @@ function HeroButton({ label, icon, variant }: HeroButtonProps) {
           ? 'bg-primary-container'
           : 'border border-secondary bg-secondary/5'
       }`}
+      onPress={() => router.push('/upload')}
       style={isPrimary ? styles.purpleGlow : styles.cyanGlow}
     >
       <MaterialIcons

@@ -7,7 +7,7 @@ import {
   UploadFooter,
   UploadFormatHint,
   UploadTopBar,
-} from '../../components/upload';
+} from '../components/upload';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 export default function UploadScreen() {
