@@ -7,6 +7,7 @@ const Layout = () => {
   const icons = {
     home: ['home', 'home-outline'],
     image: ['images', 'images-outline'],
+    tools: ['color-wand', 'color-wand-outline'],
     profile: ['person', 'person-outline'],
     history: ['time', 'time-outline'],
     upload: ['cloud-upload', 'cloud-upload-outline'],
@@ -71,6 +72,7 @@ const Layout = () => {
     >
       <Tabs.Screen name="home" />
       <Tabs.Screen name="image" />
+      <Tabs.Screen name="tools" />
       <Tabs.Screen name="profile" />
       <Tabs.Screen name="history" />
       <Tabs.Screen name="premium" />
